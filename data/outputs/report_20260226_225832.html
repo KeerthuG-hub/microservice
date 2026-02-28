@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservice Dependency Report</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: monospace; background: #1a1a2e; color: #eee; margin: 20px; }
+    h1 { color: #3498db; }
+    h2 { color: #aaa; margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th { background: #2c3e50; color: #3498db; padding: 8px; text-align: left; }
+    td { padding: 6px 8px; border-bottom: 1px solid #333; font-size: 12px; }
+    tr:hover { background: #2c2c3e; }
+    .stats { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+    .stat { background: #2c3e50; padding: 12px 20px; border-radius: 8px; min-width: 120px; }
+    .stat .num { font-size: 28px; font-weight: bold; color: #3498db; }
+    .stat .label { font-size: 11px; color: #aaa; }
+    input { background:#2c3e50; color:#eee; border:1px solid #444; padding:6px; border-radius:4px; width:300px; }
+    .infra { color: #e67e22; }
+  </style>
+</head>
+<body>
+  <h1>🔗 Microservice Dependency Report</h1>
+  <p style="color:#aaa">Generated: 2026-02-26 22:58:32</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">25</div><div class="label">Business Services</div></div>
+    <div class="stat"><div class="num" style="color:#e67e22">1</div><div class="label">Infrastructure</div></div>
+    <div class="stat"><div class="num">162</div><div class="label">Total Deps</div></div>
+    <div class="stat"><div class="num" style="color:#27ae60">16</div><div class="label">Confirmed ≥0.85</div></div>
+    <div class="stat"><div class="num" style="color:#f39c12">17</div><div class="label">Probable 0.65-0.85</div></div>
+    <div class="stat"><div class="num" style="color:#e74c3c">9</div><div class="label">Uncertain &lt;0.65</div></div>
+    <div class="stat"><div class="num" style="color:#9b59b6">118</div><div class="label">Implicit</div></div>
+    <div class="stat"><div class="num" style="color:#7f8c8d">0</div><div class="label">Env-Only (capped)</div></div>
+  </div>
+
+  <h2>🔉 Per-Service Stats</h2>
+  <table>
+    <tr><th>Service</th><th>Out</th><th>In</th><th>Max Depth</th><th>Transitive</th><th>Outgoing Types</th></tr>
+    
+            <tr>
+              <td>e2e-tests</td>
+              <td>12</td>
+              <td>0</td>
+              <td>2</td>
+              <td>5</td>
+              <td style="font-size:10px">endpoint:3, semantic:9</td>
+            </tr>
+            <tr>
+              <td>plugins</td>
+              <td>0</td>
+              <td>9</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>5</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td style="font-size:10px">endpoint:1, semantic:4</td>
+            </tr>
+            <tr>
+              <td>teastore-all <span style="color:#e67e22">[INFRA]</span></td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>teastore-auth</td>
+              <td>2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">endpoint:2</td>
+            </tr>
+            <tr>
+              <td>teastore-db</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>teastore-image</td>
+              <td>2</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">endpoint:2</td>
+            </tr>
+            <tr>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>0</td>
+              <td>6</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>teastore-persistence</td>
+              <td>3</td>
+              <td>1</td>
+              <td>1</td>
+              <td>3</td>
+              <td style="font-size:10px">endpoint:3</td>
+            </tr>
+            <tr>
+              <td>teastore-recommender</td>
+              <td>2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">endpoint:2</td>
+            </tr>
+            <tr>
+              <td>teastore-registry</td>
+              <td>0</td>
+              <td>6</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>teastore-webui</td>
+              <td>2</td>
+              <td>3</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">endpoint:2</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>21</td>
+              <td>3</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:20</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.database</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>19</td>
+              <td>1</td>
+              <td>1</td>
+              <td>8</td>
+              <td style="font-size:10px">build:8, semantic:11</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>8</td>
+              <td>3</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:7</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>10</td>
+              <td>3</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:9</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>13</td>
+              <td>5</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:13</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>12</td>
+              <td>8</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:12</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>14</td>
+              <td>5</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">build:9, semantic:5</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>9</td>
+              <td>12</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">infrastructure:1, semantic:8</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>9</td>
+              <td>11</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:8</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>7</td>
+              <td>16</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:6</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>5</td>
+              <td>19</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1, semantic:4</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>6</td>
+              <td>19</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">observability:2, build:2, semantic:2</td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.webui</td>
+              <td>1</td>
+              <td>21</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">build:1</td>
+            </tr>
+  </table>
+
+  <h2>🔧 Discovered Nodes</h2>
+  <table>
+    <tr><th>Name</th><th>Language</th><th>Discovery Anchor</th></tr>
+    <tr><td>e2e-tests </td><td>javascript</td><td>file:package.json</td></tr><tr><td>plugins </td><td>javascript</td><td>file:index.js</td></tr><tr><td>support </td><td>javascript</td><td>file:index.js</td></tr><tr><td>teastore-all <span style="color:#e67e22;font-weight:bold">[INFRA]</span></td><td>unknown</td><td>k8s:Service:teastore-all.yaml</td></tr><tr><td>teastore-auth </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-db </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-image </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-kieker-rabbitmq </td><td>unknown</td><td>k8s:Service:teastore-rabbitmq_v16.yaml</td></tr><tr><td>teastore-persistence </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-recommender </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-registry </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>teastore-webui </td><td>unknown</td><td>k8s:Service:teastore-clusterip.yaml</td></tr><tr><td>tools.descartes.teastore.auth </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.database </td><td>docker</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.docker.all </td><td>docker</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.dockerbase </td><td>docker</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.dockermemoryconfigurator </td><td>java</td><td>file:pom.xml</td></tr><tr><td>tools.descartes.teastore.entities </td><td>java</td><td>file:pom.xml</td></tr><tr><td>tools.descartes.teastore.image </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.kieker.probes </td><td>java</td><td>file:pom.xml</td></tr><tr><td>tools.descartes.teastore.kieker.rabbitmq </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.persistence </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.recommender </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.registry </td><td>java</td><td>file:Dockerfile</td></tr><tr><td>tools.descartes.teastore.registryclient </td><td>java</td><td>file:pom.xml</td></tr><tr><td>tools.descartes.teastore.webui </td><td>java</td><td>file:Dockerfile</td></tr>
+  </table>
+
+  <h2>🔗 Dependencies</h2>
+  <input type="text" id="search" placeholder="Search dependencies..." onkeyup="filterTable()">
+  <table id="deptable">
+    <tr>
+      <th>From</th><th>To</th><th>Type</th><th>Subtype</th>
+      <th>Conf</th><th>Tier</th><th>Evidence</th><th>Topic/Table</th><th>Flags</th>
+    </tr>
+    
+            <tr>
+              <td>teastore-persistence</td>
+              <td>teastore-registry</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-persistence</td>
+              <td>teastore-db</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env DB_HOST=teastore-db | env DB_HOST=teastore-db | env DB_HOST=teastore-db</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-auth</td>
+              <td>teastore-registry</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-image</td>
+              <td>teastore-registry</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-recommender</td>
+              <td>teastore-registry</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-webui</td>
+              <td>teastore-registry</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-persistence</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-auth</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-image</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-recommender</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>teastore-webui</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>rabbitmq</td>
+              <td>infrastructure</td>
+              <td>rabbitmq</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">pom.xml: kieker.rabbitmq | pom.xml: amqp-client | conn string: amqp(?:s)?://([^/\s"\']+) in LogReaderDaemon.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>jaeger</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">pom.xml: jaeger-client | SDK import: jaeger in Tracing.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>teastore-webui</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.visit('/tools.descartes.teastore.webui/category?category=3&page=1') | cy.visit('/tools.descartes.teastore.webui/login') | cy.visit('/')</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>teastore-auth</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.login() and cy.get('input[name="username"]').clear().type('user1')</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>teastore-recommender</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.contains('Are you interested in?')</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>teastore-webui</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.visit('/tools.descartes.teastore.webui/login') in commands.js</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>zipkin</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.85</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">SDK import: zipkin in Tracing.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.entities</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.78</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 16x / ratio=0.94</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.78</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 14x / ratio=0.93</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.77</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.91</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.87</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.87</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.87</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.87</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.dockerbase</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.webui</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.recommender</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.persistence</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.image</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>tools.descartes.teastore.auth</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.auth</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.docker.all</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.webui</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references tools.descartes.teastore.registry</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>plugins</td>
+              <td>build</td>
+              <td>internal_lib</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.75</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">pom.xml references plugins</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.75</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 18x / ratio=0.82</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.74</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.74</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.74</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.73</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.76</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 18x / ratio=0.75</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 18x / ratio=0.75</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.entities</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockermemoryconfigurator</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.72</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.73</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.71</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 15x / ratio=0.71</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.71</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.71</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 15x / ratio=0.68</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 15x / ratio=0.68</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 17x / ratio=0.68</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.70</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.67</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.65</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.65</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.65</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 14x / ratio=0.64</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.entities</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 15x / ratio=0.62</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.69</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.62</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.68</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.61</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.68</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 15x / ratio=0.60</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.68</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.59</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.68</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.59</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.67</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.57</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.67</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 10x / ratio=0.56</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.entities</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 8x / ratio=0.53</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.52</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.dockerbase</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.65</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 9x / ratio=0.50</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.65</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.50</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker | no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-registry</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-persistence</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-auth</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-image</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-recommender</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-webui</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-all</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.probes</td>
+              <td>teastore-kieker-rabbitmq</td>
+              <td>build</td>
+              <td>internal library imports</td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">no direct import, but possible dependency through kieker</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "database" | shared string: "order"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "database" | shared string: "orders"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "cart" | shared string: "login"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "cart" | shared string: "database"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "database" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "category" | shared string: "product"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "database" | shared string: "category"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "database" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registry</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "license"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "the" | shared string: "cart" | shared string: "category"</td>
+              <td>the</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.auth</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "cart" | shared string: "orders" | shared string: "login"</td>
+              <td>cart</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "cart" | shared string: "license" | shared string: "products"</td>
+              <td>cart</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "cart" | shared string: "license" | shared string: "products"</td>
+              <td>cart</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "category" | shared string: "license" | shared string: "categories"</td>
+              <td>category</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "category" | shared string: "license" | shared string: "products"</td>
+              <td>category</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "category" | shared string: "input" | shared string: "license"</td>
+              <td>category</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "input" | shared string: "categories"</td>
+              <td>input</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.entities</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "products"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "products" | shared string: "users"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "orders" | shared string: "orderitems"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.auth</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.image</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.entities</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.kieker.rabbitmq</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.recommender</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "generatedb" | shared string: "finished"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>tools.descartes.teastore.image</td>
+              <td>tools.descartes.teastore.registry</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>e2e-tests</td>
+              <td>support</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "submit" | shared string: "login" | shared string: "username"</td>
+              <td>submit</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>tools.descartes.teastore.webui</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "submit" | shared string: "login" | shared string: "username"</td>
+              <td>submit</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>tools.descartes.teastore.auth</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "login" | shared string: "password"</td>
+              <td>login</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>tools.descartes.teastore.registryclient</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "login" | shared string: "password" | shared string: "user1"</td>
+              <td>login</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>tools.descartes.teastore.persistence</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "password"</td>
+              <td>password</td>
+              <td></td>
+            </tr>
+  </table>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const rows = document.querySelectorAll('#deptable tr:not(:first-child)');
+      rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    }
+  </script>
+</body>
+</html>

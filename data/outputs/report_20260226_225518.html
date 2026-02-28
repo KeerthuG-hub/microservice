@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservice Dependency Report</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: monospace; background: #1a1a2e; color: #eee; margin: 20px; }
+    h1 { color: #3498db; }
+    h2 { color: #aaa; margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th { background: #2c3e50; color: #3498db; padding: 8px; text-align: left; }
+    td { padding: 6px 8px; border-bottom: 1px solid #333; font-size: 12px; }
+    tr:hover { background: #2c2c3e; }
+    .stats { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+    .stat { background: #2c3e50; padding: 12px 20px; border-radius: 8px; min-width: 120px; }
+    .stat .num { font-size: 28px; font-weight: bold; color: #3498db; }
+    .stat .label { font-size: 11px; color: #aaa; }
+    input { background:#2c3e50; color:#eee; border:1px solid #444; padding:6px; border-radius:4px; width:300px; }
+    .infra { color: #e67e22; }
+  </style>
+</head>
+<body>
+  <h1>🔗 Microservice Dependency Report</h1>
+  <p style="color:#aaa">Generated: 2026-02-26 22:55:18</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">13</div><div class="label">Business Services</div></div>
+    <div class="stat"><div class="num" style="color:#e67e22">1</div><div class="label">Infrastructure</div></div>
+    <div class="stat"><div class="num">44</div><div class="label">Total Deps</div></div>
+    <div class="stat"><div class="num" style="color:#27ae60">9</div><div class="label">Confirmed ≥0.85</div></div>
+    <div class="stat"><div class="num" style="color:#f39c12">0</div><div class="label">Probable 0.65-0.85</div></div>
+    <div class="stat"><div class="num" style="color:#e74c3c">0</div><div class="label">Uncertain &lt;0.65</div></div>
+    <div class="stat"><div class="num" style="color:#9b59b6">32</div><div class="label">Implicit</div></div>
+    <div class="stat"><div class="num" style="color:#7f8c8d">0</div><div class="label">Env-Only (capped)</div></div>
+  </div>
+
+  <h2>🔉 Per-Service Stats</h2>
+  <table>
+    <tr><th>Service</th><th>Out</th><th>In</th><th>Max Depth</th><th>Transitive</th><th>Outgoing Types</th></tr>
+    
+            <tr>
+              <td>accounts-db</td>
+              <td>6</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:6</td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>5</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:5</td>
+            </tr>
+            <tr>
+              <td>contacts</td>
+              <td>4</td>
+              <td>3</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:4</td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>9</td>
+              <td>4</td>
+              <td>1</td>
+              <td>3</td>
+              <td style="font-size:10px">external:1, observability:1, endpoint:2, semantic:5</td>
+            </tr>
+            <tr>
+              <td>frontend-nodeport <span style="color:#e67e22">[INFRA]</span></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>ignored-by-kustomize</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>ledger-db</td>
+              <td>3</td>
+              <td>3</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:3</td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>7</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">infrastructure:1, external:1, observability:2, semantic:3</td>
+            </tr>
+            <tr>
+              <td>ledgerwriter</td>
+              <td>2</td>
+              <td>4</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:2</td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>3</td>
+              <td>3</td>
+              <td>2</td>
+              <td>4</td>
+              <td style="font-size:10px">endpoint:1, semantic:2</td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>2</td>
+              <td>3</td>
+              <td>2</td>
+              <td>4</td>
+              <td style="font-size:10px">endpoint:1, semantic:1</td>
+            </tr>
+            <tr>
+              <td>transactionhistory</td>
+              <td>1</td>
+              <td>5</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">semantic:1</td>
+            </tr>
+            <tr>
+              <td>ui-tests</td>
+              <td>1</td>
+              <td>4</td>
+              <td>2</td>
+              <td>4</td>
+              <td style="font-size:10px">endpoint:1</td>
+            </tr>
+            <tr>
+              <td>userservice</td>
+              <td>0</td>
+              <td>7</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+  </table>
+
+  <h2>🔧 Discovered Nodes</h2>
+  <table>
+    <tr><th>Name</th><th>Language</th><th>Discovery Anchor</th></tr>
+    <tr><td>accounts-db </td><td>unknown</td><td>k8s:Service:accounts-db.yaml</td></tr><tr><td>balancereader </td><td>unknown</td><td>k8s:Service:balance-reader.yaml</td></tr><tr><td>contacts </td><td>unknown</td><td>k8s:Service:contacts.yaml</td></tr><tr><td>frontend </td><td>python</td><td>k8s:Service:frontend.yaml</td></tr><tr><td>frontend-nodeport <span style="color:#e67e22;font-weight:bold">[INFRA]</span></td><td>unknown</td><td>k8s:Service:managed-certificates.yaml</td></tr><tr><td>ignored-by-kustomize </td><td>unknown</td><td>k8s:Service:set-type-cluster-ip.yaml</td></tr><tr><td>ledger-db </td><td>unknown</td><td>k8s:Service:ledger-db.yaml</td></tr><tr><td>ledgermonolith </td><td>java</td><td>file:pom.xml</td></tr><tr><td>ledgerwriter </td><td>unknown</td><td>k8s:Service:ledger-writer.yaml</td></tr><tr><td>loadgenerator </td><td>python</td><td>k8s:Service:loadgenerator.yaml</td></tr><tr><td>support </td><td>javascript</td><td>file:index.js</td></tr><tr><td>transactionhistory </td><td>unknown</td><td>k8s:Service:transaction-history.yaml</td></tr><tr><td>ui-tests </td><td>javascript</td><td>file:Dockerfile</td></tr><tr><td>userservice </td><td>unknown</td><td>k8s:Service:userservice.yaml</td></tr>
+  </table>
+
+  <h2>🔗 Dependencies</h2>
+  <input type="text" id="search" placeholder="Search dependencies..." onkeyup="filterTable()">
+  <table id="deptable">
+    <tr>
+      <th>From</th><th>To</th><th>Type</th><th>Subtype</th>
+      <th>Conf</th><th>Tier</th><th>Evidence</th><th>Topic/Table</th><th>Flags</th>
+    </tr>
+    
+            <tr>
+              <td>loadgenerator</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>__external__</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">Ingress → frontend | Ingress → frontend</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-exporter-gcp-trace | requirements.txt: opentelemetry-instrumentation</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ui-tests</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.visit('/login'), cy.visit('/signup'), cy.visit('/home'), cy.visit('/')</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">cy.visit('login') and cy.visit('/signup') suggest HTTP requests to the frontend service | cy.request({ method: 'POST', url: '/login' }) suggests an HTTP request to the frontend service</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">requirements.txt: google-cloud-trace</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>postgres</td>
+              <td>infrastructure</td>
+              <td>postgres</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">pom.xml: postgresql</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>userservice</td>
+              <td>endpoint</td>
+              <td>grpc</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env var USERSERVICE_API_ADDR in frontend.py | env var USERSERVICE_API_ADDR in frontend.py</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>contacts</td>
+              <td>endpoint</td>
+              <td>grpc</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env var CONTACTS_API_ADDR in frontend.py</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>auth0</td>
+              <td>external</td>
+              <td>auth0</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">SDK import: auth0 in JWTVerifierGenerator.java | SDK import: auth0 in LedgerMonolithController.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>zipkin</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.85</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">SDK import: zipkin in LedgerMonolithApplication.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.85</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">SDK import: opentelemetry|otel in LedgerReader.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>balancereader</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>contacts</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>ledger-db</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>ledgerwriter</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>transactionhistory</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accounts-db</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>contacts</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>ledger-db</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>ledgerwriter</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>transactionhistory</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>balancereader</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>contacts</td>
+              <td>ledger-db</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>contacts</td>
+              <td>ledgerwriter</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>contacts</td>
+              <td>transactionhistory</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>contacts</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledger-db</td>
+              <td>ledgerwriter</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledger-db</td>
+              <td>transactionhistory</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledger-db</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgerwriter</td>
+              <td>transactionhistory</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgerwriter</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>transactionhistory</td>
+              <td>userservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.80</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 5x / ratio=1.00</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.75</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 29x / ratio=0.83</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>support</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "login" | shared string: "license"</td>
+              <td>login</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>ui-tests</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "login" | shared string: "license" | shared string: "username"</td>
+              <td>login</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>support</td>
+              <td>ui-tests</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "login" | shared string: "license" | shared string: "deposittonewaccount"</td>
+              <td>login</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>ledgermonolith</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "amount" | shared string: "uuid"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "amount" | shared string: "uuid"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "amount" | shared string: "uuid"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>support</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ledgermonolith</td>
+              <td>ui-tests</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>support</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>ui-tests</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "username" | shared string: "password"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+  </table>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const rows = document.querySelectorAll('#deptable tr:not(:first-child)');
+      rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    }
+  </script>
+</body>
+</html>

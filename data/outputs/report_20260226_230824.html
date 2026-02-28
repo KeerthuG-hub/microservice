@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservice Dependency Report</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: monospace; background: #1a1a2e; color: #eee; margin: 20px; }
+    h1 { color: #3498db; }
+    h2 { color: #aaa; margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th { background: #2c3e50; color: #3498db; padding: 8px; text-align: left; }
+    td { padding: 6px 8px; border-bottom: 1px solid #333; font-size: 12px; }
+    tr:hover { background: #2c2c3e; }
+    .stats { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+    .stat { background: #2c3e50; padding: 12px 20px; border-radius: 8px; min-width: 120px; }
+    .stat .num { font-size: 28px; font-weight: bold; color: #3498db; }
+    .stat .label { font-size: 11px; color: #aaa; }
+    input { background:#2c3e50; color:#eee; border:1px solid #444; padding:6px; border-radius:4px; width:300px; }
+    .infra { color: #e67e22; }
+  </style>
+</head>
+<body>
+  <h1>🔗 Microservice Dependency Report</h1>
+  <p style="color:#aaa">Generated: 2026-02-26 23:08:24</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">15</div><div class="label">Business Services</div></div>
+    <div class="stat"><div class="num" style="color:#e67e22">1</div><div class="label">Infrastructure</div></div>
+    <div class="stat"><div class="num">121</div><div class="label">Total Deps</div></div>
+    <div class="stat"><div class="num" style="color:#27ae60">27</div><div class="label">Confirmed ≥0.85</div></div>
+    <div class="stat"><div class="num" style="color:#f39c12">1</div><div class="label">Probable 0.65-0.85</div></div>
+    <div class="stat"><div class="num" style="color:#e74c3c">1</div><div class="label">Uncertain &lt;0.65</div></div>
+    <div class="stat"><div class="num" style="color:#9b59b6">77</div><div class="label">Implicit</div></div>
+    <div class="stat"><div class="num" style="color:#7f8c8d">0</div><div class="label">Env-Only (capped)</div></div>
+  </div>
+
+  <h2>🔉 Per-Service Stats</h2>
+  <table>
+    <tr><th>Service</th><th>Out</th><th>In</th><th>Max Depth</th><th>Transitive</th><th>Outgoing Types</th></tr>
+    
+            <tr>
+              <td>Health</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>13</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px">observability:2, semantic:11</td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>12</td>
+              <td>3</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">endpoint:1, external:1, semantic:10</td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>19</td>
+              <td>3</td>
+              <td>2</td>
+              <td>9</td>
+              <td style="font-size:10px">endpoint:6, observability:1, semantic:12</td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>13</td>
+              <td>5</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">external:1, observability:2, infrastructure:1, semantic:9</td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>12</td>
+              <td>5</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">external:1, observability:2, semantic:9</td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>17</td>
+              <td>8</td>
+              <td>2</td>
+              <td>13</td>
+              <td style="font-size:10px">endpoint:8, observability:1, semantic:8</td>
+            </tr>
+            <tr>
+              <td>frontend-external <span style="color:#e67e22">[INFRA]</span></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>8</td>
+              <td>7</td>
+              <td>3</td>
+              <td>14</td>
+              <td style="font-size:10px">endpoint:1, semantic:7</td>
+            </tr>
+            <tr>
+              <td>opentelemetrycollector</td>
+              <td>0</td>
+              <td>5</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>7</td>
+              <td>9</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">external:1, observability:2, semantic:4</td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>9</td>
+              <td>13</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">observability:2, infrastructure:2, external:1, semantic:4</td>
+            </tr>
+            <tr>
+              <td>recommendationservice</td>
+              <td>4</td>
+              <td>12</td>
+              <td>2</td>
+              <td>3</td>
+              <td style="font-size:10px">endpoint:1, observability:1, semantic:2</td>
+            </tr>
+            <tr>
+              <td>redis-cart</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td style="font-size:10px"></td>
+            </tr>
+            <tr>
+              <td>shippingservice</td>
+              <td>4</td>
+              <td>15</td>
+              <td>1</td>
+              <td>1</td>
+              <td style="font-size:10px">observability:2, infrastructure:1, semantic:1</td>
+            </tr>
+            <tr>
+              <td>shoppingassistantservice</td>
+              <td>2</td>
+              <td>13</td>
+              <td>1</td>
+              <td>2</td>
+              <td style="font-size:10px">infrastructure:1, external:1</td>
+            </tr>
+  </table>
+
+  <h2>🔧 Discovered Nodes</h2>
+  <table>
+    <tr><th>Name</th><th>Language</th><th>Discovery Anchor</th></tr>
+    <tr><td>Health </td><td>proto</td><td>proto:health.proto</td></tr><tr><td>adservice </td><td>java</td><td>k8s:Service:adservice.yaml</td></tr><tr><td>cartservice </td><td>csharp</td><td>k8s:Service:cartservice.yaml</td></tr><tr><td>checkoutservice </td><td>go</td><td>k8s:Service:checkoutservice.yaml</td></tr><tr><td>currencyservice </td><td>javascript</td><td>k8s:Service:currencyservice.yaml</td></tr><tr><td>emailservice </td><td>python</td><td>k8s:Service:emailservice.yaml</td></tr><tr><td>frontend </td><td>go</td><td>k8s:Service:frontend.yaml</td></tr><tr><td>frontend-external <span style="color:#e67e22;font-weight:bold">[INFRA]</span></td><td>unknown</td><td>k8s:Service:frontend.yaml</td></tr><tr><td>loadgenerator </td><td>python</td><td>file:Dockerfile</td></tr><tr><td>opentelemetrycollector </td><td>unknown</td><td>k8s:Service:otel-collector.yaml</td></tr><tr><td>paymentservice </td><td>javascript</td><td>k8s:Service:paymentservice.yaml</td></tr><tr><td>productcatalogservice </td><td>go</td><td>k8s:Service:productcatalogservice.yaml</td></tr><tr><td>recommendationservice </td><td>python</td><td>k8s:Service:recommendationservice.yaml</td></tr><tr><td>redis-cart </td><td>unknown</td><td>k8s:Service:cartservice.yaml</td></tr><tr><td>shippingservice </td><td>go</td><td>k8s:Service:shippingservice.yaml</td></tr><tr><td>shoppingassistantservice </td><td>python</td><td>k8s:Service:shoppingassistantservice.yaml</td></tr>
+  </table>
+
+  <h2>🔗 Dependencies</h2>
+  <input type="text" id="search" placeholder="Search dependencies..." onkeyup="filterTable()">
+  <table id="deptable">
+    <tr>
+      <th>From</th><th>To</th><th>Type</th><th>Subtype</th>
+      <th>Conf</th><th>Tier</th><th>Evidence</th><th>Topic/Table</th><th>Flags</th>
+    </tr>
+    
+            <tr>
+              <td>checkoutservice</td>
+              <td>productcatalogservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>shippingservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>paymentservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>emailservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>currencyservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>cartservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>recommendationservice</td>
+              <td>productcatalogservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>productcatalogservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>currencyservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>cartservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>recommendationservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>shippingservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>checkoutservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>adservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>shoppingassistantservice</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>__external__</td>
+              <td>frontend</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">Ingress → frontend</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>recommendationservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp | go.mod: go.opentelemetry.io/otel</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">package.json: @google-cloud/profiler | SDK import: google\.cloud|@google-cloud in index.js</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">package.json: @google-cloud/profiler | package.json: @google-cloud/trace-agent | SDK import: google\.cloud|@google-cloud in server.js</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shippingservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.90</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">go.mod: go.opentelemetry.io/auto/sdk | go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shoppingassistantservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.90</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">requirements.txt: google-cloud-alloydb | requirements.txt: google-cloud-alloydb-connector | requirements.txt: google-cloud-core</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>opentelemetrycollector</td>
+              <td>observability</td>
+              <td>opentelemetry</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">import opentelemetry and OTLPSpanExporter</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>opentelemetrycollector</td>
+              <td>observability</td>
+              <td>opentelemetry</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">OTLPTraceExporter and COLLECTOR_SERVICE_ADDR environment variable</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>postgres</td>
+              <td>infrastructure</td>
+              <td></td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">import of github.com/jackc/pgx/v5/pgxpool</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td></td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">import of cloud.google.com/go/alloydbconn and cloud.google.com/go/secretmanager/apiv1</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>opentelemetrycollector</td>
+              <td>observability</td>
+              <td>opentelemetry</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">import of go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>opentelemetrycollector</td>
+              <td>observability</td>
+              <td>opentelemetry</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">registerInstrumentations with GrpcInstrumentation and @google-cloud/profiler</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>gcp</td>
+              <td>infrastructure</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">@google-cloud/profiler and @google-cloud/trace-agent</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shippingservice</td>
+              <td>gcp</td>
+              <td>infrastructure</td>
+              <td>cloud</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.88</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">import of cloud.google.com/go/profiler</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shippingservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td></td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">mention of tracing and opentelemetrycollector in main.go</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>opentelemetrycollector</td>
+              <td>observability</td>
+              <td>opentelemetry</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.88</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">io.grpc.health.v1 and io.grpc.services imports suggest OpenTelemetry usage</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">requirements.txt: google-cloud-trace | requirements.in: google-cloud-trace</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shoppingassistantservice</td>
+              <td>postgres</td>
+              <td>infrastructure</td>
+              <td>postgres</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">requirements.txt: asyncpg | requirements.txt: langchain-postgres | requirements.txt: psycopg</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>gcp</td>
+              <td>external</td>
+              <td>gcp</td>
+              <td><span style="color:#27ae60;font-weight:bold">0.85</span></td>
+              <td><span style="color:#27ae60">confirmed</span></td>
+              <td style="font-size:11px">SDK import: google\.cloud|@google-cloud in SpannerCartStore.cs | SDK import: google\.cloud|@google-cloud in AlloyDBCartStore.cs</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>opentelemetry</td>
+              <td>observability</td>
+              <td>jaeger</td>
+              <td><span style="color:#95a5a6;font-weight:bold">0.85</span></td>
+              <td><span style="color:#95a5a6">observability</span></td>
+              <td style="font-size:11px">SDK import: opentelemetry|otel in AdService.java</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>redis-cart</td>
+              <td>endpoint</td>
+              <td>http</td>
+              <td><span style="color:#f39c12;font-weight:bold">0.82</span></td>
+              <td><span style="color:#f39c12">probable</span></td>
+              <td style="font-size:11px">env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.78</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.92</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.78</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.92</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.86</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.76</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 23x / ratio=0.85</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.75</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.85</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.75</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.85</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.75</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 11x / ratio=0.85</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.73</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 20x / ratio=0.77</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.68</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 13x / ratio=0.59</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.55</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>change_coupling</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.66</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">co-changed 12x / ratio=0.55</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>redis</td>
+              <td>infrastructure</td>
+              <td></td>
+              <td><span style="color:#e74c3c;font-weight:bold">0.52</span></td>
+              <td><span style="color:#e74c3c">uncertain</span></td>
+              <td style="font-size:11px">redis-cart mentioned in known services, but not explicitly used in provided code</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "pythonjsonlogger" | shared string: "google" | shared string: "license"</td>
+              <td>pythonjsonlogger</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "google" | shared string: "license" | shared string: "__main__"</td>
+              <td>google</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>recommendationservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "google" | shared string: "license" | shared string: "__main__"</td>
+              <td>google</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>cartservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>checkoutservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>currencyservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>emailservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "disable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>adservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>checkoutservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>currencyservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>emailservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "quantity"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "quantity"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "project_id" | shared string: "alloydb_database_name"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>cartservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "project_id" | shared string: "alloydb_database_name"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>currencyservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>emailservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "time"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>checkoutservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>emailservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>currencyservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>frontend</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "disable_profiler"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emailservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "disable_profiler"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>loadgenerator</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "quantity" | shared string: "credit_card_number"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "enable_tracing"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "time"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>frontend</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>paymentservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>loadgenerator</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>productcatalogservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>paymentservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>recommendationservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "disable_profiler"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "disable_profiler"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>productcatalogservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "alloydb_cluster_name" | shared string: "project_id"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>recommendationservice</td>
+              <td>shippingservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license" | shared string: "severity" | shared string: "disable_profiler"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>shippingservice</td>
+              <td>shoppingassistantservice</td>
+              <td>semantic</td>
+              <td>shared_domain</td>
+              <td><span style="color:#9b59b6;font-weight:bold">0.50</span></td>
+              <td><span style="color:#9b59b6">implicit</span></td>
+              <td style="font-size:11px">shared string: "license"</td>
+              <td>license</td>
+              <td></td>
+            </tr>
+  </table>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const rows = document.querySelectorAll('#deptable tr:not(:first-child)');
+      rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    }
+  </script>
+</body>
+</html>

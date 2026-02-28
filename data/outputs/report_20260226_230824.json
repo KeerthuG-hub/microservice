@@ -1,0 +1,2092 @@
+{
+  "metadata": {
+    "generated": "2026-02-26T23:08:24.895963",
+    "total_services": 15,
+    "infrastructure_services": 1,
+    "total_dependencies": 121,
+    "confirmed_deps": 27,
+    "probable_deps": 1,
+    "uncertain_deps": 1,
+    "implicit_deps": 77,
+    "env_only_deps": 0,
+    "learned_port_map": {
+      "5000": "emailservice",
+      "5050": "checkoutservice",
+      "8080": "recommendationservice",
+      "80": "shoppingassistantservice",
+      "50051": "shippingservice",
+      "3550": "productcatalogservice",
+      "7070": "cartservice",
+      "6379": "redis-cart",
+      "7000": "currencyservice",
+      "9555": "adservice",
+      "4317": "opentelemetrycollector"
+    },
+    "learned_env_patterns": [
+      "EMAIL_SERVICE_ADDR",
+      "PRODUCT_CATALOG_SERVICE_ADDR",
+      "_ADDR",
+      "SHIPPING_SERVICE_ADDR",
+      "RECOMMENDATION_SERVICE_ADDR",
+      "PAYMENT_SERVICE_ADDR",
+      "SHOPPING_ASSISTANT_SERVICE_ADDR",
+      "CHECKOUT_SERVICE_ADDR",
+      "REDIS_ADDR",
+      "CART_SERVICE_ADDR",
+      "AD_SERVICE_ADDR",
+      "CURRENCY_SERVICE_ADDR"
+    ]
+  },
+  "services": [
+    {
+      "name": "emailservice",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/emailservice",
+      "anchor": "k8s:Service:emailservice.yaml",
+      "ports": [
+        5000
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "checkoutservice",
+      "language": "go",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/checkoutservice",
+      "anchor": "k8s:Service:checkoutservice.yaml",
+      "ports": [
+        5050
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "recommendationservice",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/recommendationservice",
+      "anchor": "k8s:Service:recommendationservice.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "frontend",
+      "language": "go",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/frontend",
+      "anchor": "k8s:Service:frontend.yaml",
+      "ports": [
+        80
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "frontend-external",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/kubernetes-manifests",
+      "anchor": "k8s:Service:frontend.yaml",
+      "ports": [
+        80
+      ],
+      "is_infrastructure": true
+    },
+    {
+      "name": "paymentservice",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/paymentservice",
+      "anchor": "k8s:Service:paymentservice.yaml",
+      "ports": [
+        50051
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "productcatalogservice",
+      "language": "go",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/productcatalogservice",
+      "anchor": "k8s:Service:productcatalogservice.yaml",
+      "ports": [
+        3550
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "cartservice",
+      "language": "csharp",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/cartservice",
+      "anchor": "k8s:Service:cartservice.yaml",
+      "ports": [
+        7070
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "redis-cart",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/kubernetes-manifests",
+      "anchor": "k8s:Service:cartservice.yaml",
+      "ports": [
+        6379
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "currencyservice",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/currencyservice",
+      "anchor": "k8s:Service:currencyservice.yaml",
+      "ports": [
+        7000
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "shippingservice",
+      "language": "go",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/shippingservice",
+      "anchor": "k8s:Service:shippingservice.yaml",
+      "ports": [
+        50051
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "adservice",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/adservice",
+      "anchor": "k8s:Service:adservice.yaml",
+      "ports": [
+        9555
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "opentelemetrycollector",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/kustomize/components/google-cloud-operations",
+      "anchor": "k8s:Service:otel-collector.yaml",
+      "ports": [
+        4317
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "shoppingassistantservice",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/shoppingassistantservice",
+      "anchor": "k8s:Service:shoppingassistantservice.yaml",
+      "ports": [
+        80
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "loadgenerator",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/src/loadgenerator",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "Health",
+      "language": "proto",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/online-boutique/protos/grpc/health/v1",
+      "anchor": "proto:health.proto",
+      "ports": [],
+      "is_infrastructure": false
+    }
+  ],
+  "infra_nodes": [
+    "frontend-external"
+  ],
+  "per_service_stats": {
+    "emailservice": {
+      "outgoing": 12,
+      "incoming": 5,
+      "outgoing_types": {
+        "external": 1,
+        "observability": 2,
+        "semantic": 9
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 4
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "checkoutservice": {
+      "outgoing": 19,
+      "incoming": 3,
+      "outgoing_types": {
+        "endpoint": 6,
+        "observability": 1,
+        "semantic": 12
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 2
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 9
+    },
+    "recommendationservice": {
+      "outgoing": 4,
+      "incoming": 12,
+      "outgoing_types": {
+        "endpoint": 1,
+        "observability": 1,
+        "semantic": 2
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 11
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 3
+    },
+    "frontend": {
+      "outgoing": 17,
+      "incoming": 8,
+      "outgoing_types": {
+        "endpoint": 8,
+        "observability": 1,
+        "semantic": 8
+      },
+      "incoming_types": {
+        "endpoint": 2,
+        "semantic": 6
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 13
+    },
+    "frontend-external": {
+      "outgoing": 0,
+      "incoming": 0,
+      "outgoing_types": {},
+      "incoming_types": {},
+      "is_infrastructure": true,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "paymentservice": {
+      "outgoing": 7,
+      "incoming": 9,
+      "outgoing_types": {
+        "external": 1,
+        "observability": 2,
+        "semantic": 4
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 8
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "productcatalogservice": {
+      "outgoing": 9,
+      "incoming": 13,
+      "outgoing_types": {
+        "observability": 2,
+        "infrastructure": 2,
+        "external": 1,
+        "semantic": 4
+      },
+      "incoming_types": {
+        "endpoint": 3,
+        "semantic": 10
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "cartservice": {
+      "outgoing": 12,
+      "incoming": 3,
+      "outgoing_types": {
+        "endpoint": 1,
+        "external": 1,
+        "semantic": 10
+      },
+      "incoming_types": {
+        "endpoint": 2,
+        "semantic": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "redis-cart": {
+      "outgoing": 0,
+      "incoming": 1,
+      "outgoing_types": {},
+      "incoming_types": {
+        "endpoint": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "currencyservice": {
+      "outgoing": 13,
+      "incoming": 5,
+      "outgoing_types": {
+        "external": 1,
+        "observability": 2,
+        "infrastructure": 1,
+        "semantic": 9
+      },
+      "incoming_types": {
+        "endpoint": 2,
+        "semantic": 3
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "shippingservice": {
+      "outgoing": 4,
+      "incoming": 15,
+      "outgoing_types": {
+        "observability": 2,
+        "infrastructure": 1,
+        "semantic": 1
+      },
+      "incoming_types": {
+        "endpoint": 2,
+        "semantic": 13
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "adservice": {
+      "outgoing": 13,
+      "incoming": 1,
+      "outgoing_types": {
+        "observability": 2,
+        "semantic": 11
+      },
+      "incoming_types": {
+        "endpoint": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "opentelemetrycollector": {
+      "outgoing": 0,
+      "incoming": 5,
+      "outgoing_types": {},
+      "incoming_types": {
+        "observability": 5
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "shoppingassistantservice": {
+      "outgoing": 2,
+      "incoming": 13,
+      "outgoing_types": {
+        "infrastructure": 1,
+        "external": 1
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 12
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "loadgenerator": {
+      "outgoing": 8,
+      "incoming": 7,
+      "outgoing_types": {
+        "endpoint": 1,
+        "semantic": 7
+      },
+      "incoming_types": {
+        "semantic": 7
+      },
+      "is_infrastructure": false,
+      "max_depth": 3,
+      "transitive_deps": 14
+    },
+    "Health": {
+      "outgoing": 0,
+      "incoming": 0,
+      "outgoing_types": {},
+      "incoming_types": {},
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    }
+  },
+  "depth_stats": {
+    "emailservice": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "checkoutservice": {
+      "max_depth": 2,
+      "transitive_deps": 9
+    },
+    "recommendationservice": {
+      "max_depth": 2,
+      "transitive_deps": 3
+    },
+    "frontend": {
+      "max_depth": 2,
+      "transitive_deps": 13
+    },
+    "frontend-external": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "paymentservice": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "productcatalogservice": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "cartservice": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "redis-cart": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "currencyservice": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "shippingservice": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "adservice": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "opentelemetrycollector": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "shoppingassistantservice": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "loadgenerator": {
+      "max_depth": 3,
+      "transitive_deps": 14
+    },
+    "Health": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    }
+  },
+  "confirmed": [
+    {
+      "from": "checkoutservice",
+      "to": "productcatalogservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "shippingservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "paymentservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "emailservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "currencyservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "cartservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "recommendationservice",
+      "to": "productcatalogservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "productcatalogservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "currencyservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "cartservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "recommendationservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "shippingservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "checkoutservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "adservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "shoppingassistantservice",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "__external__",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "Ingress \u2192 frontend",
+      "sources": [
+        "k8s_ingress"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.9,
+      "evidence": "package.json: @google-cloud/profiler | SDK import: google\\.cloud|@google-cloud in index.js",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.9,
+      "evidence": "package.json: @google-cloud/profiler | package.json: @google-cloud/trace-agent | SDK import: google\\.cloud|@google-cloud in server.js",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "shoppingassistantservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.9,
+      "evidence": "requirements.txt: google-cloud-alloydb | requirements.txt: google-cloud-alloydb-connector | requirements.txt: google-cloud-core",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "postgres",
+      "type": "infrastructure",
+      "subtype": null,
+      "confidence": 0.88,
+      "evidence": "import of github.com/jackc/pgx/v5/pgxpool",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": null,
+      "confidence": 0.88,
+      "evidence": "import of cloud.google.com/go/alloydbconn and cloud.google.com/go/secretmanager/apiv1",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "gcp",
+      "type": "infrastructure",
+      "subtype": "gcp",
+      "confidence": 0.88,
+      "evidence": "@google-cloud/profiler and @google-cloud/trace-agent",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "shippingservice",
+      "to": "gcp",
+      "type": "infrastructure",
+      "subtype": "cloud",
+      "confidence": 0.88,
+      "evidence": "import of cloud.google.com/go/profiler",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.85,
+      "evidence": "requirements.txt: google-cloud-trace | requirements.in: google-cloud-trace",
+      "sources": [
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "shoppingassistantservice",
+      "to": "postgres",
+      "type": "infrastructure",
+      "subtype": "postgres",
+      "confidence": 0.85,
+      "evidence": "requirements.txt: asyncpg | requirements.txt: langchain-postgres | requirements.txt: psycopg",
+      "sources": [
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.85,
+      "evidence": "SDK import: google\\.cloud|@google-cloud in SpannerCartStore.cs | SDK import: google\\.cloud|@google-cloud in AlloyDBCartStore.cs",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "probable": [
+    {
+      "from": "cartservice",
+      "to": "redis-cart",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.82,
+      "evidence": "env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379",
+      "sources": [
+        "k8s_env_svcname"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "uncertain": [
+    {
+      "from": "productcatalogservice",
+      "to": "redis",
+      "type": "infrastructure",
+      "subtype": null,
+      "confidence": 0.52,
+      "evidence": "redis-cart mentioned in known services, but not explicitly used in provided code",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "implicit": [
+    {
+      "from": "frontend",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.777,
+      "evidence": "co-changed 12x / ratio=0.92",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.777,
+      "evidence": "co-changed 12x / ratio=0.92",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.757,
+      "evidence": "co-changed 12x / ratio=0.86",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.756,
+      "evidence": "co-changed 23x / ratio=0.85",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.754,
+      "evidence": "co-changed 11x / ratio=0.85",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.754,
+      "evidence": "co-changed 11x / ratio=0.85",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.754,
+      "evidence": "co-changed 11x / ratio=0.85",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.731,
+      "evidence": "co-changed 20x / ratio=0.77",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.677,
+      "evidence": "co-changed 13x / ratio=0.59",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.664,
+      "evidence": "co-changed 12x / ratio=0.55",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.664,
+      "evidence": "co-changed 12x / ratio=0.55",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"pythonjsonlogger\" | shared string: \"google\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "pythonjsonlogger",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"google\" | shared string: \"license\" | shared string: \"__main__\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "google",
+      "conditional": false
+    },
+    {
+      "from": "recommendationservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"google\" | shared string: \"license\" | shared string: \"__main__\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "google",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "cartservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "checkoutservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "currencyservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "emailservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"disable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "checkoutservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "currencyservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "emailservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"quantity\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"quantity\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"project_id\" | shared string: \"alloydb_database_name\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "cartservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"project_id\" | shared string: \"alloydb_database_name\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "currencyservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "emailservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"time\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "emailservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "frontend",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"disable_profiler\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"disable_profiler\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"quantity\" | shared string: \"credit_card_number\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"enable_tracing\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"time\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "paymentservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "productcatalogservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "recommendationservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"disable_profiler\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"disable_profiler\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"alloydb_cluster_name\" | shared string: \"project_id\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "recommendationservice",
+      "to": "shippingservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"severity\" | shared string: \"disable_profiler\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "shippingservice",
+      "to": "shoppingassistantservice",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    }
+  ],
+  "observability": [
+    {
+      "from": "emailservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "checkoutservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "recommendationservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp | go.mod: go.opentelemetry.io/otel",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "shippingservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "go.mod: go.opentelemetry.io/auto/sdk | go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel",
+      "sources": [
+        "build_file",
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "emailservice",
+      "to": "opentelemetrycollector",
+      "type": "observability",
+      "subtype": "opentelemetry",
+      "confidence": 0.88,
+      "evidence": "import opentelemetry and OTLPSpanExporter",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "paymentservice",
+      "to": "opentelemetrycollector",
+      "type": "observability",
+      "subtype": "opentelemetry",
+      "confidence": 0.88,
+      "evidence": "OTLPTraceExporter and COLLECTOR_SERVICE_ADDR environment variable",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "productcatalogservice",
+      "to": "opentelemetrycollector",
+      "type": "observability",
+      "subtype": "opentelemetry",
+      "confidence": 0.88,
+      "evidence": "import of go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "currencyservice",
+      "to": "opentelemetrycollector",
+      "type": "observability",
+      "subtype": "opentelemetry",
+      "confidence": 0.88,
+      "evidence": "registerInstrumentations with GrpcInstrumentation and @google-cloud/profiler",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "shippingservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": null,
+      "confidence": 0.88,
+      "evidence": "mention of tracing and opentelemetrycollector in main.go",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "opentelemetrycollector",
+      "type": "observability",
+      "subtype": "opentelemetry",
+      "confidence": 0.88,
+      "evidence": "io.grpc.health.v1 and io.grpc.services imports suggest OpenTelemetry usage",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "adservice",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.85,
+      "evidence": "SDK import: opentelemetry|otel in AdService.java",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ]
+}

@@ -1,0 +1,979 @@
+{
+  "metadata": {
+    "generated": "2026-02-26T22:55:18.613955",
+    "total_services": 13,
+    "infrastructure_services": 1,
+    "total_dependencies": 44,
+    "confirmed_deps": 9,
+    "probable_deps": 0,
+    "uncertain_deps": 0,
+    "implicit_deps": 32,
+    "env_only_deps": 0,
+    "learned_port_map": {
+      "8080": "frontend-nodeport",
+      "5432": "ledger-db",
+      "80": "frontend"
+    },
+    "learned_env_patterns": [
+      "_ADDR"
+    ]
+  },
+  "services": [
+    {
+      "name": "ledgerwriter",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:ledger-writer.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "accounts-db",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:accounts-db.yaml",
+      "ports": [
+        5432
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "transactionhistory",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:transaction-history.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "ledger-db",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:ledger-db.yaml",
+      "ports": [
+        5432
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "frontend",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/src/frontend",
+      "anchor": "k8s:Service:frontend.yaml",
+      "ports": [
+        80
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "balancereader",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:balance-reader.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "contacts",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:contacts.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "userservice",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/kubernetes-manifests",
+      "anchor": "k8s:Service:userservice.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "ignored-by-kustomize",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/src/components/service-cluster-ip",
+      "anchor": "k8s:Service:set-type-cluster-ip.yaml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "loadgenerator",
+      "language": "python",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/src/loadgenerator",
+      "anchor": "k8s:Service:loadgenerator.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "frontend-nodeport",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/extras/tls-domain-managedcerts",
+      "anchor": "k8s:Service:managed-certificates.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": true
+    },
+    {
+      "name": "ui-tests",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/.github/workflows/ui-tests",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "ledgermonolith",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/src/ledgermonolith",
+      "anchor": "file:pom.xml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "support",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/bank-of-anthos/.github/workflows/ui-tests/cypress/support",
+      "anchor": "file:index.js",
+      "ports": [],
+      "is_infrastructure": false
+    }
+  ],
+  "infra_nodes": [
+    "frontend-nodeport"
+  ],
+  "per_service_stats": {
+    "ledgerwriter": {
+      "outgoing": 2,
+      "incoming": 4,
+      "outgoing_types": {
+        "semantic": 2
+      },
+      "incoming_types": {
+        "semantic": 4
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "accounts-db": {
+      "outgoing": 6,
+      "incoming": 0,
+      "outgoing_types": {
+        "semantic": 6
+      },
+      "incoming_types": {},
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "transactionhistory": {
+      "outgoing": 1,
+      "incoming": 5,
+      "outgoing_types": {
+        "semantic": 1
+      },
+      "incoming_types": {
+        "semantic": 5
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ledger-db": {
+      "outgoing": 3,
+      "incoming": 3,
+      "outgoing_types": {
+        "semantic": 3
+      },
+      "incoming_types": {
+        "semantic": 3
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "frontend": {
+      "outgoing": 9,
+      "incoming": 4,
+      "outgoing_types": {
+        "external": 1,
+        "observability": 1,
+        "endpoint": 2,
+        "semantic": 5
+      },
+      "incoming_types": {
+        "endpoint": 4
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 3
+    },
+    "balancereader": {
+      "outgoing": 5,
+      "incoming": 1,
+      "outgoing_types": {
+        "semantic": 5
+      },
+      "incoming_types": {
+        "semantic": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "contacts": {
+      "outgoing": 4,
+      "incoming": 3,
+      "outgoing_types": {
+        "semantic": 4
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 2
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "userservice": {
+      "outgoing": 0,
+      "incoming": 7,
+      "outgoing_types": {},
+      "incoming_types": {
+        "endpoint": 1,
+        "semantic": 6
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ignored-by-kustomize": {
+      "outgoing": 0,
+      "incoming": 0,
+      "outgoing_types": {},
+      "incoming_types": {},
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "loadgenerator": {
+      "outgoing": 3,
+      "incoming": 3,
+      "outgoing_types": {
+        "endpoint": 1,
+        "semantic": 2
+      },
+      "incoming_types": {
+        "semantic": 3
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 4
+    },
+    "frontend-nodeport": {
+      "outgoing": 0,
+      "incoming": 0,
+      "outgoing_types": {},
+      "incoming_types": {},
+      "is_infrastructure": true,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ui-tests": {
+      "outgoing": 1,
+      "incoming": 4,
+      "outgoing_types": {
+        "endpoint": 1
+      },
+      "incoming_types": {
+        "semantic": 4
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 4
+    },
+    "ledgermonolith": {
+      "outgoing": 7,
+      "incoming": 1,
+      "outgoing_types": {
+        "infrastructure": 1,
+        "external": 1,
+        "observability": 2,
+        "semantic": 3
+      },
+      "incoming_types": {
+        "semantic": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "support": {
+      "outgoing": 2,
+      "incoming": 3,
+      "outgoing_types": {
+        "endpoint": 1,
+        "semantic": 1
+      },
+      "incoming_types": {
+        "semantic": 3
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 4
+    }
+  },
+  "depth_stats": {
+    "ledgerwriter": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "accounts-db": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "transactionhistory": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ledger-db": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "frontend": {
+      "max_depth": 1,
+      "transitive_deps": 3
+    },
+    "balancereader": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "contacts": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "userservice": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ignored-by-kustomize": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "loadgenerator": {
+      "max_depth": 2,
+      "transitive_deps": 4
+    },
+    "frontend-nodeport": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "ui-tests": {
+      "max_depth": 2,
+      "transitive_deps": 4
+    },
+    "ledgermonolith": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "support": {
+      "max_depth": 2,
+      "transitive_deps": 4
+    }
+  },
+  "confirmed": [
+    {
+      "from": "loadgenerator",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "__external__",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "Ingress \u2192 frontend | Ingress \u2192 frontend",
+      "sources": [
+        "k8s_ingress"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ui-tests",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.visit('/login'), cy.visit('/signup'), cy.visit('/home'), cy.visit('/')",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "frontend",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.visit('login') and cy.visit('/signup') suggest HTTP requests to the frontend service | cy.request({ method: 'POST', url: '/login' }) suggests an HTTP request to the frontend service",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "gcp",
+      "type": "external",
+      "subtype": "gcp",
+      "confidence": 0.85,
+      "evidence": "requirements.txt: google-cloud-trace",
+      "sources": [
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "postgres",
+      "type": "infrastructure",
+      "subtype": "postgres",
+      "confidence": 0.85,
+      "evidence": "pom.xml: postgresql",
+      "sources": [
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "userservice",
+      "type": "endpoint",
+      "subtype": "grpc",
+      "confidence": 0.85,
+      "evidence": "env var USERSERVICE_API_ADDR in frontend.py | env var USERSERVICE_API_ADDR in frontend.py",
+      "sources": [
+        "code_env_var"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "contacts",
+      "type": "endpoint",
+      "subtype": "grpc",
+      "confidence": 0.85,
+      "evidence": "env var CONTACTS_API_ADDR in frontend.py",
+      "sources": [
+        "code_env_var"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "auth0",
+      "type": "external",
+      "subtype": "auth0",
+      "confidence": 0.85,
+      "evidence": "SDK import: auth0 in JWTVerifierGenerator.java | SDK import: auth0 in LedgerMonolithController.java",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "probable": [],
+  "uncertain": [],
+  "implicit": [
+    {
+      "from": "accounts-db",
+      "to": "balancereader",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "accounts-db",
+      "to": "contacts",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "accounts-db",
+      "to": "ledger-db",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "accounts-db",
+      "to": "ledgerwriter",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "accounts-db",
+      "to": "transactionhistory",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "accounts-db",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "balancereader",
+      "to": "contacts",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "balancereader",
+      "to": "ledger-db",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "balancereader",
+      "to": "ledgerwriter",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "balancereader",
+      "to": "transactionhistory",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "balancereader",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "contacts",
+      "to": "ledger-db",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "contacts",
+      "to": "ledgerwriter",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "contacts",
+      "to": "transactionhistory",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "contacts",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledger-db",
+      "to": "ledgerwriter",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledger-db",
+      "to": "transactionhistory",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledger-db",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgerwriter",
+      "to": "transactionhistory",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgerwriter",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "transactionhistory",
+      "to": "userservice",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 5x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.749,
+      "evidence": "co-changed 29x / ratio=0.83",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "support",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"login\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "login",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "ui-tests",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"login\" | shared string: \"license\" | shared string: \"username\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "login",
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "ui-tests",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"login\" | shared string: \"license\" | shared string: \"deposittonewaccount\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "login",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "ledgermonolith",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"amount\" | shared string: \"uuid\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "frontend",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"amount\" | shared string: \"uuid\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "loadgenerator",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"amount\" | shared string: \"uuid\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "support",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "ui-tests",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "support",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "loadgenerator",
+      "to": "ui-tests",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"username\" | shared string: \"password\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    }
+  ],
+  "observability": [
+    {
+      "from": "frontend",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-exporter-gcp-trace | requirements.txt: opentelemetry-instrumentation",
+      "sources": [
+        "code_sdk",
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "zipkin",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.85,
+      "evidence": "SDK import: zipkin in LedgerMonolithApplication.java",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "ledgermonolith",
+      "to": "opentelemetry",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.85,
+      "evidence": "SDK import: opentelemetry|otel in LedgerReader.java",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ]
+}

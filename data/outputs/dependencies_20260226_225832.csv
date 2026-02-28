@@ -1,0 +1,163 @@
+from_service,to_service,dep_type,subtype,confidence,tier,evidence,sources,topic_or_table,conditional
+teastore-persistence,teastore-registry,endpoint,http,0.9,confirmed,env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry,k8s_env,,False
+teastore-persistence,teastore-db,endpoint,http,0.9,confirmed,env DB_HOST=teastore-db | env DB_HOST=teastore-db | env DB_HOST=teastore-db,k8s_env,,False
+teastore-auth,teastore-registry,endpoint,http,0.9,confirmed,env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry,k8s_env,,False
+teastore-image,teastore-registry,endpoint,http,0.9,confirmed,env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry,k8s_env,,False
+teastore-recommender,teastore-registry,endpoint,http,0.9,confirmed,env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry,k8s_env,,False
+teastore-webui,teastore-registry,endpoint,http,0.9,confirmed,env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry,k8s_env,,False
+teastore-persistence,teastore-kieker-rabbitmq,endpoint,http,0.9,confirmed,env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq,k8s_env,,False
+teastore-auth,teastore-kieker-rabbitmq,endpoint,http,0.9,confirmed,env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq,k8s_env,,False
+teastore-image,teastore-kieker-rabbitmq,endpoint,http,0.9,confirmed,env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq,k8s_env,,False
+teastore-recommender,teastore-kieker-rabbitmq,endpoint,http,0.9,confirmed,env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq,k8s_env,,False
+teastore-webui,teastore-kieker-rabbitmq,endpoint,http,0.9,confirmed,env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq,k8s_env,,False
+tools.descartes.teastore.kieker.rabbitmq,rabbitmq,infrastructure,rabbitmq,0.9,confirmed,"pom.xml: kieker.rabbitmq | pom.xml: amqp-client | conn string: amqp(?:s)?://([^/\s""\']+) in LogReaderDaemon.java","code_conn_string,build_file",,False
+tools.descartes.teastore.registryclient,jaeger,observability,jaeger,0.9,observability,pom.xml: jaeger-client | SDK import: jaeger in Tracing.java,"code_sdk,build_file",,False
+e2e-tests,teastore-webui,endpoint,http,0.88,confirmed,cy.visit('/tools.descartes.teastore.webui/category?category=3&page=1') | cy.visit('/tools.descartes.teastore.webui/login') | cy.visit('/'),llm_analysis,,False
+e2e-tests,teastore-auth,endpoint,http,0.88,confirmed,"cy.login() and cy.get('input[name=""username""]').clear().type('user1')",llm_analysis,,False
+e2e-tests,teastore-recommender,endpoint,http,0.88,confirmed,cy.contains('Are you interested in?'),llm_analysis,,False
+support,teastore-webui,endpoint,http,0.88,confirmed,cy.visit('/tools.descartes.teastore.webui/login') in commands.js,llm_analysis,,False
+tools.descartes.teastore.registryclient,zipkin,observability,jaeger,0.85,observability,SDK import: zipkin in Tracing.java,code_sdk,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.docker.all,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.dockerbase,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.dockermemoryconfigurator,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.entities,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.image,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.kieker.probes,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.persistence,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.recommender,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.registry,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.registryclient,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.webui,semantic,change_coupling,0.8,implicit,co-changed 8x / ratio=1.00,git_change_coupling,,False
+tools.descartes.teastore.registry,tools.descartes.teastore.registryclient,semantic,change_coupling,0.782,implicit,co-changed 16x / ratio=0.94,git_change_coupling,,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.recommender,semantic,change_coupling,0.78,implicit,co-changed 14x / ratio=0.93,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.dockermemoryconfigurator,semantic,change_coupling,0.773,implicit,co-changed 10x / ratio=0.91,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.recommender,semantic,change_coupling,0.76,implicit,co-changed 13x / ratio=0.87,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.webui,semantic,change_coupling,0.76,implicit,co-changed 13x / ratio=0.87,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.recommender,semantic,change_coupling,0.76,implicit,co-changed 13x / ratio=0.87,git_change_coupling,,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.webui,semantic,change_coupling,0.76,implicit,co-changed 13x / ratio=0.87,git_change_coupling,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.dockerbase,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.dockerbase,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.webui,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.webui,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.recommender,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.recommender,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.persistence,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.persistence,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.registry,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.registry,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.image,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.image,build_pom,,False
+tools.descartes.teastore.docker.all,tools.descartes.teastore.auth,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.auth,build_pom,,False
+tools.descartes.teastore.docker.all,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.dockerbase,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.webui,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.recommender,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.persistence,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.registry,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.auth,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.dockermemoryconfigurator,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.registryclient,tools.descartes.teastore.registry,build,internal_lib,0.75,probable,pom.xml references tools.descartes.teastore.registry,build_pom,,False
+tools.descartes.teastore.registryclient,plugins,build,internal_lib,0.75,probable,pom.xml references plugins,build_pom,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.registryclient,semantic,change_coupling,0.745,implicit,co-changed 18x / ratio=0.82,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.image,semantic,change_coupling,0.74,implicit,co-changed 12x / ratio=0.80,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.persistence,semantic,change_coupling,0.74,implicit,co-changed 12x / ratio=0.80,git_change_coupling,,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.registryclient,semantic,change_coupling,0.74,implicit,co-changed 12x / ratio=0.80,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.registry,semantic,change_coupling,0.729,implicit,co-changed 13x / ratio=0.76,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.725,implicit,co-changed 18x / ratio=0.75,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.registryclient,semantic,change_coupling,0.725,implicit,co-changed 18x / ratio=0.75,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.registryclient,semantic,change_coupling,0.72,implicit,co-changed 11x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.dockermemoryconfigurator,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.entities,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.image,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.kieker.probes,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.persistence,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.recommender,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.registry,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.registryclient,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.dockermemoryconfigurator,tools.descartes.teastore.webui,semantic,change_coupling,0.718,implicit,co-changed 8x / ratio=0.73,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.persistence,semantic,change_coupling,0.714,implicit,co-changed 15x / ratio=0.71,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.registry,semantic,change_coupling,0.712,implicit,co-changed 12x / ratio=0.71,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.kieker.probes,semantic,change_coupling,0.705,implicit,co-changed 15x / ratio=0.68,git_change_coupling,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.705,implicit,co-changed 15x / ratio=0.68,git_change_coupling,,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.registryclient,semantic,change_coupling,0.704,implicit,co-changed 17x / ratio=0.68,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.kieker.probes,semantic,change_coupling,0.7,implicit,co-changed 10x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.registry,semantic,change_coupling,0.7,implicit,co-changed 10x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.webui,semantic,change_coupling,0.7,implicit,co-changed 12x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.recommender,semantic,change_coupling,0.7,implicit,co-changed 10x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.webui,semantic,change_coupling,0.7,implicit,co-changed 12x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.registry,semantic,change_coupling,0.7,implicit,co-changed 10x / ratio=0.67,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.registry,semantic,change_coupling,0.694,implicit,co-changed 11x / ratio=0.65,git_change_coupling,,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.registry,semantic,change_coupling,0.694,implicit,co-changed 11x / ratio=0.65,git_change_coupling,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.registry,semantic,change_coupling,0.694,implicit,co-changed 11x / ratio=0.65,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.kieker.probes,semantic,change_coupling,0.691,implicit,co-changed 14x / ratio=0.64,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.entities,semantic,change_coupling,0.688,implicit,co-changed 15x / ratio=0.62,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.registryclient,semantic,change_coupling,0.686,implicit,co-changed 13x / ratio=0.62,git_change_coupling,,False
+tools.descartes.teastore.registryclient,tools.descartes.teastore.webui,semantic,change_coupling,0.683,implicit,co-changed 11x / ratio=0.61,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.68,implicit,co-changed 15x / ratio=0.60,git_change_coupling,,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.registry,semantic,change_coupling,0.676,implicit,co-changed 10x / ratio=0.59,git_change_coupling,,False
+tools.descartes.teastore.registry,tools.descartes.teastore.webui,semantic,change_coupling,0.676,implicit,co-changed 10x / ratio=0.59,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.image,semantic,change_coupling,0.671,implicit,co-changed 12x / ratio=0.57,git_change_coupling,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.webui,semantic,change_coupling,0.667,implicit,co-changed 10x / ratio=0.56,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.dockerbase,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.entities,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.auth,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.recommender,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.entities,tools.descartes.teastore.recommender,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.recommender,semantic,change_coupling,0.66,implicit,co-changed 8x / ratio=0.53,git_change_coupling,,False
+tools.descartes.teastore.image,tools.descartes.teastore.kieker.rabbitmq,semantic,change_coupling,0.657,implicit,co-changed 11x / ratio=0.52,git_change_coupling,,False
+tools.descartes.teastore.dockerbase,tools.descartes.teastore.webui,semantic,change_coupling,0.65,implicit,co-changed 9x / ratio=0.50,git_change_coupling,,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.registryclient,semantic,change_coupling,0.65,implicit,co-changed 11x / ratio=0.50,git_change_coupling,,False
+tools.descartes.teastore.kieker.probes,tools.descartes.teastore.kieker.rabbitmq,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker | no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-registry,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-persistence,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-auth,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-image,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-recommender,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-webui,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-all,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+tools.descartes.teastore.kieker.probes,teastore-kieker-rabbitmq,build,internal library imports,0.52,uncertain,"no direct import, but possible dependency through kieker",llm_analysis,,False
+e2e-tests,tools.descartes.teastore.kieker.rabbitmq,semantic,shared_domain,0.5,implicit,"shared string: ""the""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""database"" | shared string: ""order""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""database"" | shared string: ""orders""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""the""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""cart"" | shared string: ""login""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""cart"" | shared string: ""database""",string_cooccurrence,the,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.kieker.rabbitmq,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""database"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""category"" | shared string: ""product""",string_cooccurrence,the,False
+tools.descartes.teastore.persistence,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""database"" | shared string: ""category""",string_cooccurrence,the,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.recommender,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""database"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.registry,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.registry,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""license""",string_cooccurrence,the,False
+tools.descartes.teastore.registryclient,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""the"" | shared string: ""cart"" | shared string: ""category""",string_cooccurrence,the,False
+e2e-tests,tools.descartes.teastore.auth,semantic,shared_domain,0.5,implicit,"shared string: ""cart"" | shared string: ""orders"" | shared string: ""login""",string_cooccurrence,cart,False
+tools.descartes.teastore.auth,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""cart"" | shared string: ""license"" | shared string: ""products""",string_cooccurrence,cart,False
+tools.descartes.teastore.auth,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""cart"" | shared string: ""license"" | shared string: ""products""",string_cooccurrence,cart,False
+tools.descartes.teastore.image,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""category"" | shared string: ""license"" | shared string: ""categories""",string_cooccurrence,category,False
+tools.descartes.teastore.image,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""category"" | shared string: ""license"" | shared string: ""products""",string_cooccurrence,category,False
+tools.descartes.teastore.image,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""category"" | shared string: ""input"" | shared string: ""license""",string_cooccurrence,category,False
+e2e-tests,tools.descartes.teastore.image,semantic,shared_domain,0.5,implicit,"shared string: ""input"" | shared string: ""categories""",string_cooccurrence,input,False
+tools.descartes.teastore.auth,tools.descartes.teastore.entities,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.auth,tools.descartes.teastore.image,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""products""",string_cooccurrence,license,False
+tools.descartes.teastore.auth,tools.descartes.teastore.kieker.rabbitmq,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.auth,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""products"" | shared string: ""users""",string_cooccurrence,license,False
+tools.descartes.teastore.auth,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""orders"" | shared string: ""orderitems""",string_cooccurrence,license,False
+tools.descartes.teastore.auth,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.image,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.kieker.rabbitmq,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.entities,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.image,tools.descartes.teastore.kieker.rabbitmq,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+tools.descartes.teastore.image,tools.descartes.teastore.recommender,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""generatedb"" | shared string: ""finished""",string_cooccurrence,license,False
+tools.descartes.teastore.image,tools.descartes.teastore.registry,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+e2e-tests,support,semantic,shared_domain,0.5,implicit,"shared string: ""submit"" | shared string: ""login"" | shared string: ""username""",string_cooccurrence,submit,False
+support,tools.descartes.teastore.webui,semantic,shared_domain,0.5,implicit,"shared string: ""submit"" | shared string: ""login"" | shared string: ""username""",string_cooccurrence,submit,False
+support,tools.descartes.teastore.auth,semantic,shared_domain,0.5,implicit,"shared string: ""login"" | shared string: ""password""",string_cooccurrence,login,False
+support,tools.descartes.teastore.registryclient,semantic,shared_domain,0.5,implicit,"shared string: ""login"" | shared string: ""password"" | shared string: ""user1""",string_cooccurrence,login,False
+support,tools.descartes.teastore.persistence,semantic,shared_domain,0.5,implicit,"shared string: ""password""",string_cooccurrence,password,False

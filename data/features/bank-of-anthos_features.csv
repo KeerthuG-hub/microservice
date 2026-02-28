@@ -1,0 +1,15 @@
+service_name,language,has_upstream,has_downstream,is_leaf,is_root,upstream_count,downstream_count,transitive_downstream,transitive_upstream,total_coupling,betweenness_centrality,pagerank,in_degree_centrality,out_degree_centrality,fan_in,fan_out,coupling_ratio,max_path_depth,error_rate,latency_p99_ms,requests_per_day,health_score,complexity_score,project
+ledgerwriter,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+accounts-db,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+transactionhistory,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+ledger-db,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+frontend,python,1,1,0,0,3,2,2,3,5,0.038461538461538464,0.1814224427447907,0.23076923076923078,0.15384615384615385,3,2,0.6666666666666666,1,0.0338,734.9,18961.0,66.5,0.67,bank-of-anthos
+balancereader,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+contacts,unknown,1,0,1,0,1,0,0,4,1,0.0,0.1282102287548356,0.07692307692307693,0.0,1,0,0.0,0,0.0029,119.2,13693.0,98.1,0.038,bank-of-anthos
+userservice,unknown,1,0,1,0,1,0,0,4,1,0.0,0.1282102287548356,0.07692307692307693,0.0,1,0,0.0,0,0.0029,119.2,13693.0,98.1,0.038,bank-of-anthos
+ignored-by-kustomize,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+loadgenerator,python,0,1,0,1,0,1,3,0,1,0.0,0.05110519088595799,0.0,0.07692307692307693,0,1,1.0,2,0.0165,407.7,6059.0,84.2,0.315,bank-of-anthos
+frontend-nodeport,unknown,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+ui-tests,javascript,0,1,0,1,0,1,3,0,1,0.0,0.05110519088595799,0.0,0.07692307692307693,0,1,1.0,2,0.0165,407.7,6059.0,84.2,0.315,bank-of-anthos
+ledgermonolith,java,0,0,1,1,0,0,0,0,0,0.0,0.05110519088595799,0.0,0.0,0,0,0.0,0,0.0018,107.7,6059.0,99.2,0.015,bank-of-anthos
+support,javascript,0,1,0,1,0,1,3,0,1,0.0,0.05110519088595799,0.0,0.07692307692307693,0,1,1.0,2,0.0165,407.7,6059.0,84.2,0.315,bank-of-anthos

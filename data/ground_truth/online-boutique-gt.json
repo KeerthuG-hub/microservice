@@ -1,0 +1,18 @@
+{
+  "edges": [
+    ["frontend", "cartservice"],
+    ["frontend", "productcatalogservice"],
+    ["frontend", "currencyservice"],
+    ["frontend", "checkoutservice"],
+    ["frontend", "recommendationservice"],
+    ["frontend", "shippingservice"],
+    ["frontend", "adservice"],
+    ["checkoutservice", "cartservice"],
+    ["checkoutservice", "productcatalogservice"],
+    ["checkoutservice", "currencyservice"],
+    ["checkoutservice", "shippingservice"],
+    ["checkoutservice", "emailservice"],
+    ["checkoutservice", "paymentservice"],
+    ["recommendationservice", "productcatalogservice"]
+  ]
+}

@@ -1,0 +1,2830 @@
+{
+  "metadata": {
+    "generated": "2026-02-26T22:58:32.577545",
+    "total_services": 25,
+    "infrastructure_services": 1,
+    "total_dependencies": 162,
+    "confirmed_deps": 16,
+    "probable_deps": 17,
+    "uncertain_deps": 9,
+    "implicit_deps": 118,
+    "env_only_deps": 0,
+    "learned_port_map": {
+      "3306": "teastore-db",
+      "8080": "teastore-kieker-rabbitmq",
+      "5672": "teastore-kieker-rabbitmq"
+    },
+    "learned_env_patterns": [
+      "REGISTRY_HOST",
+      "DB_HOST",
+      "RABBITMQ_HOST",
+      "HOST_NAME"
+    ]
+  },
+  "services": [
+    {
+      "name": "teastore-db",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        3306
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-registry",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-persistence",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-auth",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-image",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-recommender",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-webui",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-clusterip.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "teastore-all",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-all.yaml",
+      "ports": [
+        8080
+      ],
+      "is_infrastructure": true
+    },
+    {
+      "name": "teastore-kieker-rabbitmq",
+      "language": "unknown",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/examples/kubernetes",
+      "anchor": "k8s:Service:teastore-rabbitmq_v16.yaml",
+      "ports": [
+        8080,
+        5672
+      ],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.database",
+      "language": "docker",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.database",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.docker.all",
+      "language": "docker",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.docker.all",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.kieker.rabbitmq",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.kieker.rabbitmq",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.dockerbase",
+      "language": "docker",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.dockerbase",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.webui",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.webui",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.recommender",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.recommender",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.persistence",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.persistence",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.registry",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.registry",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.image",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.image",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.auth",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/services/tools.descartes.teastore.auth",
+      "anchor": "file:Dockerfile",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "e2e-tests",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/e2e-tests",
+      "anchor": "file:package.json",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.dockermemoryconfigurator",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.dockermemoryconfigurator",
+      "anchor": "file:pom.xml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.kieker.probes",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.kieker.probes",
+      "anchor": "file:pom.xml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.registryclient",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/utilities/tools.descartes.teastore.registryclient",
+      "anchor": "file:pom.xml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "tools.descartes.teastore.entities",
+      "language": "java",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/interfaces/tools.descartes.teastore.entities",
+      "anchor": "file:pom.xml",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "plugins",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/e2e-tests/cypress/plugins",
+      "anchor": "file:index.js",
+      "ports": [],
+      "is_infrastructure": false
+    },
+    {
+      "name": "support",
+      "language": "javascript",
+      "path": "/Users/keerthanaganesh/Desktop/dep_analyzer/microservice-dependency-analyzer/data/test_projects/TeaStore/e2e-tests/cypress/support",
+      "anchor": "file:index.js",
+      "ports": [],
+      "is_infrastructure": false
+    }
+  ],
+  "infra_nodes": [
+    "teastore-all"
+  ],
+  "per_service_stats": {
+    "teastore-db": {
+      "outgoing": 0,
+      "incoming": 1,
+      "outgoing_types": {},
+      "incoming_types": {
+        "endpoint": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-registry": {
+      "outgoing": 0,
+      "incoming": 6,
+      "outgoing_types": {},
+      "incoming_types": {
+        "endpoint": 5,
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-persistence": {
+      "outgoing": 3,
+      "incoming": 1,
+      "outgoing_types": {
+        "endpoint": 3
+      },
+      "incoming_types": {
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 3
+    },
+    "teastore-auth": {
+      "outgoing": 2,
+      "incoming": 2,
+      "outgoing_types": {
+        "endpoint": 2
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-image": {
+      "outgoing": 2,
+      "incoming": 1,
+      "outgoing_types": {
+        "endpoint": 2
+      },
+      "incoming_types": {
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-recommender": {
+      "outgoing": 2,
+      "incoming": 2,
+      "outgoing_types": {
+        "endpoint": 2
+      },
+      "incoming_types": {
+        "endpoint": 1,
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-webui": {
+      "outgoing": 2,
+      "incoming": 3,
+      "outgoing_types": {
+        "endpoint": 2
+      },
+      "incoming_types": {
+        "endpoint": 2,
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-all": {
+      "outgoing": 0,
+      "incoming": 1,
+      "outgoing_types": {},
+      "incoming_types": {
+        "build": 1
+      },
+      "is_infrastructure": true,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-kieker-rabbitmq": {
+      "outgoing": 0,
+      "incoming": 6,
+      "outgoing_types": {},
+      "incoming_types": {
+        "endpoint": 5,
+        "build": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.database": {
+      "outgoing": 0,
+      "incoming": 0,
+      "outgoing_types": {},
+      "incoming_types": {},
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.docker.all": {
+      "outgoing": 19,
+      "incoming": 1,
+      "outgoing_types": {
+        "build": 8,
+        "semantic": 11
+      },
+      "incoming_types": {
+        "semantic": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 8
+    },
+    "tools.descartes.teastore.kieker.rabbitmq": {
+      "outgoing": 9,
+      "incoming": 12,
+      "outgoing_types": {
+        "infrastructure": 1,
+        "semantic": 8
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 11
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.dockerbase": {
+      "outgoing": 8,
+      "incoming": 3,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 7
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 2
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.webui": {
+      "outgoing": 1,
+      "incoming": 21,
+      "outgoing_types": {
+        "build": 1
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 20
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.recommender": {
+      "outgoing": 7,
+      "incoming": 16,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 6
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 15
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.persistence": {
+      "outgoing": 9,
+      "incoming": 11,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 8
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 10
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.registry": {
+      "outgoing": 5,
+      "incoming": 19,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 4
+      },
+      "incoming_types": {
+        "build": 2,
+        "semantic": 17
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.image": {
+      "outgoing": 12,
+      "incoming": 8,
+      "outgoing_types": {
+        "semantic": 12
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 7
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.auth": {
+      "outgoing": 21,
+      "incoming": 3,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 20
+      },
+      "incoming_types": {
+        "build": 1,
+        "semantic": 2
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "e2e-tests": {
+      "outgoing": 12,
+      "incoming": 0,
+      "outgoing_types": {
+        "endpoint": 3,
+        "semantic": 9
+      },
+      "incoming_types": {},
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 5
+    },
+    "tools.descartes.teastore.dockermemoryconfigurator": {
+      "outgoing": 10,
+      "incoming": 3,
+      "outgoing_types": {
+        "build": 1,
+        "semantic": 9
+      },
+      "incoming_types": {
+        "semantic": 3
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.kieker.probes": {
+      "outgoing": 14,
+      "incoming": 5,
+      "outgoing_types": {
+        "build": 9,
+        "semantic": 5
+      },
+      "incoming_types": {
+        "semantic": 5
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.registryclient": {
+      "outgoing": 6,
+      "incoming": 19,
+      "outgoing_types": {
+        "observability": 2,
+        "build": 2,
+        "semantic": 2
+      },
+      "incoming_types": {
+        "semantic": 19
+      },
+      "is_infrastructure": false,
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "tools.descartes.teastore.entities": {
+      "outgoing": 13,
+      "incoming": 5,
+      "outgoing_types": {
+        "semantic": 13
+      },
+      "incoming_types": {
+        "semantic": 5
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "plugins": {
+      "outgoing": 0,
+      "incoming": 9,
+      "outgoing_types": {},
+      "incoming_types": {
+        "build": 9
+      },
+      "is_infrastructure": false,
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "support": {
+      "outgoing": 5,
+      "incoming": 1,
+      "outgoing_types": {
+        "endpoint": 1,
+        "semantic": 4
+      },
+      "incoming_types": {
+        "semantic": 1
+      },
+      "is_infrastructure": false,
+      "max_depth": 2,
+      "transitive_deps": 3
+    }
+  },
+  "depth_stats": {
+    "teastore-db": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-registry": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-persistence": {
+      "max_depth": 1,
+      "transitive_deps": 3
+    },
+    "teastore-auth": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-image": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-recommender": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-webui": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "teastore-all": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "teastore-kieker-rabbitmq": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.database": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.docker.all": {
+      "max_depth": 1,
+      "transitive_deps": 8
+    },
+    "tools.descartes.teastore.kieker.rabbitmq": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.dockerbase": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.webui": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.recommender": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.persistence": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.registry": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.image": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.auth": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "e2e-tests": {
+      "max_depth": 2,
+      "transitive_deps": 5
+    },
+    "tools.descartes.teastore.dockermemoryconfigurator": {
+      "max_depth": 1,
+      "transitive_deps": 1
+    },
+    "tools.descartes.teastore.kieker.probes": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "tools.descartes.teastore.registryclient": {
+      "max_depth": 1,
+      "transitive_deps": 2
+    },
+    "tools.descartes.teastore.entities": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "plugins": {
+      "max_depth": 0,
+      "transitive_deps": 0
+    },
+    "support": {
+      "max_depth": 2,
+      "transitive_deps": 3
+    }
+  },
+  "confirmed": [
+    {
+      "from": "teastore-persistence",
+      "to": "teastore-registry",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-persistence",
+      "to": "teastore-db",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env DB_HOST=teastore-db | env DB_HOST=teastore-db | env DB_HOST=teastore-db",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-auth",
+      "to": "teastore-registry",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-image",
+      "to": "teastore-registry",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-recommender",
+      "to": "teastore-registry",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-webui",
+      "to": "teastore-registry",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry | env REGISTRY_HOST=teastore-registry",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-persistence",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-auth",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-image",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-recommender",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "teastore-webui",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.9,
+      "evidence": "env RABBITMQ_HOST=teastore-kieker-rabbitmq | env RABBITMQ_HOST=teastore-kieker-rabbitmq",
+      "sources": [
+        "k8s_env"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "rabbitmq",
+      "type": "infrastructure",
+      "subtype": "rabbitmq",
+      "confidence": 0.9,
+      "evidence": "pom.xml: kieker.rabbitmq | pom.xml: amqp-client | conn string: amqp(?:s)?://([^/\\s\"\\']+) in LogReaderDaemon.java",
+      "sources": [
+        "code_conn_string",
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "teastore-webui",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.visit('/tools.descartes.teastore.webui/category?category=3&page=1') | cy.visit('/tools.descartes.teastore.webui/login') | cy.visit('/')",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "teastore-auth",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.login() and cy.get('input[name=\"username\"]').clear().type('user1')",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "teastore-recommender",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.contains('Are you interested in?')",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "teastore-webui",
+      "type": "endpoint",
+      "subtype": "http",
+      "confidence": 0.88,
+      "evidence": "cy.visit('/tools.descartes.teastore.webui/login') in commands.js",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "probable": [
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.dockerbase",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.dockerbase",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.webui",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.webui",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.recommender",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.persistence",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.registry",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.registry",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.image",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.image",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.auth",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.auth",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.webui",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registry",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "tools.descartes.teastore.registry",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references tools.descartes.teastore.registry",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "plugins",
+      "type": "build",
+      "subtype": "internal_lib",
+      "confidence": 0.75,
+      "evidence": "pom.xml references plugins",
+      "sources": [
+        "build_pom"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "uncertain": [
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker | no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-registry",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-persistence",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-auth",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-image",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-recommender",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-webui",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-all",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "teastore-kieker-rabbitmq",
+      "type": "build",
+      "subtype": "internal library imports",
+      "confidence": 0.52,
+      "evidence": "no direct import, but possible dependency through kieker",
+      "sources": [
+        "llm_analysis"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ],
+  "implicit": [
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.docker.all",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.dockerbase",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.dockermemoryconfigurator",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.entities",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.kieker.probes",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.docker.all",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.8,
+      "evidence": "co-changed 8x / ratio=1.00",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registry",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.782,
+      "evidence": "co-changed 16x / ratio=0.94",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.78,
+      "evidence": "co-changed 14x / ratio=0.93",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.dockermemoryconfigurator",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.773,
+      "evidence": "co-changed 10x / ratio=0.91",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.76,
+      "evidence": "co-changed 13x / ratio=0.87",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.76,
+      "evidence": "co-changed 13x / ratio=0.87",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.76,
+      "evidence": "co-changed 13x / ratio=0.87",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.76,
+      "evidence": "co-changed 13x / ratio=0.87",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.745,
+      "evidence": "co-changed 18x / ratio=0.82",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.74,
+      "evidence": "co-changed 12x / ratio=0.80",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.74,
+      "evidence": "co-changed 12x / ratio=0.80",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.74,
+      "evidence": "co-changed 12x / ratio=0.80",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.729,
+      "evidence": "co-changed 13x / ratio=0.76",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.725,
+      "evidence": "co-changed 18x / ratio=0.75",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.725,
+      "evidence": "co-changed 18x / ratio=0.75",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.72,
+      "evidence": "co-changed 11x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.dockermemoryconfigurator",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.entities",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.kieker.probes",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockermemoryconfigurator",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.718,
+      "evidence": "co-changed 8x / ratio=0.73",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.714,
+      "evidence": "co-changed 15x / ratio=0.71",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.712,
+      "evidence": "co-changed 12x / ratio=0.71",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.kieker.probes",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.705,
+      "evidence": "co-changed 15x / ratio=0.68",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.705,
+      "evidence": "co-changed 15x / ratio=0.68",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.704,
+      "evidence": "co-changed 17x / ratio=0.68",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.kieker.probes",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 10x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 10x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 12x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 10x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 12x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.7,
+      "evidence": "co-changed 10x / ratio=0.67",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.694,
+      "evidence": "co-changed 11x / ratio=0.65",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.694,
+      "evidence": "co-changed 11x / ratio=0.65",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.694,
+      "evidence": "co-changed 11x / ratio=0.65",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.kieker.probes",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.691,
+      "evidence": "co-changed 14x / ratio=0.64",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.entities",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.688,
+      "evidence": "co-changed 15x / ratio=0.62",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.686,
+      "evidence": "co-changed 13x / ratio=0.62",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.683,
+      "evidence": "co-changed 11x / ratio=0.61",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.68,
+      "evidence": "co-changed 15x / ratio=0.60",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.676,
+      "evidence": "co-changed 10x / ratio=0.59",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registry",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.676,
+      "evidence": "co-changed 10x / ratio=0.59",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.671,
+      "evidence": "co-changed 12x / ratio=0.57",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.probes",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.667,
+      "evidence": "co-changed 10x / ratio=0.56",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.dockerbase",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.entities",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.66,
+      "evidence": "co-changed 8x / ratio=0.53",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.657,
+      "evidence": "co-changed 11x / ratio=0.52",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.dockerbase",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.65,
+      "evidence": "co-changed 9x / ratio=0.50",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "change_coupling",
+      "confidence": 0.65,
+      "evidence": "co-changed 11x / ratio=0.50",
+      "sources": [
+        "git_change_coupling"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"database\" | shared string: \"order\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"database\" | shared string: \"orders\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"cart\" | shared string: \"login\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"cart\" | shared string: \"database\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.kieker.rabbitmq",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"database\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"category\" | shared string: \"product\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.persistence",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"database\" | shared string: \"category\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.recommender",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"database\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registry",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registry",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"the\" | shared string: \"cart\" | shared string: \"category\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "the",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.auth",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"cart\" | shared string: \"orders\" | shared string: \"login\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "cart",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"cart\" | shared string: \"license\" | shared string: \"products\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "cart",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"cart\" | shared string: \"license\" | shared string: \"products\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "cart",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"category\" | shared string: \"license\" | shared string: \"categories\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "category",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"category\" | shared string: \"license\" | shared string: \"products\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "category",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"category\" | shared string: \"input\" | shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "category",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"input\" | shared string: \"categories\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "input",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.entities",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"products\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"products\" | shared string: \"users\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"orders\" | shared string: \"orderitems\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.auth",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.image",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.entities",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.kieker.rabbitmq",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.recommender",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\" | shared string: \"generatedb\" | shared string: \"finished\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.image",
+      "to": "tools.descartes.teastore.registry",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"license\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "license",
+      "conditional": false
+    },
+    {
+      "from": "e2e-tests",
+      "to": "support",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"submit\" | shared string: \"login\" | shared string: \"username\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "submit",
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "tools.descartes.teastore.webui",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"submit\" | shared string: \"login\" | shared string: \"username\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "submit",
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "tools.descartes.teastore.auth",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"login\" | shared string: \"password\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "login",
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "tools.descartes.teastore.registryclient",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"login\" | shared string: \"password\" | shared string: \"user1\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "login",
+      "conditional": false
+    },
+    {
+      "from": "support",
+      "to": "tools.descartes.teastore.persistence",
+      "type": "semantic",
+      "subtype": "shared_domain",
+      "confidence": 0.5,
+      "evidence": "shared string: \"password\"",
+      "sources": [
+        "string_cooccurrence"
+      ],
+      "topic_or_table": "password",
+      "conditional": false
+    }
+  ],
+  "observability": [
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "jaeger",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.9,
+      "evidence": "pom.xml: jaeger-client | SDK import: jaeger in Tracing.java",
+      "sources": [
+        "code_sdk",
+        "build_file"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    },
+    {
+      "from": "tools.descartes.teastore.registryclient",
+      "to": "zipkin",
+      "type": "observability",
+      "subtype": "jaeger",
+      "confidence": 0.85,
+      "evidence": "SDK import: zipkin in Tracing.java",
+      "sources": [
+        "code_sdk"
+      ],
+      "topic_or_table": null,
+      "conditional": false
+    }
+  ]
+}

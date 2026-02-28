@@ -1,0 +1,45 @@
+from_service,to_service,dep_type,subtype,confidence,tier,evidence,sources,topic_or_table,conditional
+loadgenerator,frontend,endpoint,http,0.9,confirmed,env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80,k8s_env,,False
+__external__,frontend,endpoint,http,0.9,confirmed,Ingress → frontend | Ingress → frontend,k8s_ingress,,False
+frontend,opentelemetry,observability,jaeger,0.9,observability,requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-exporter-gcp-trace | requirements.txt: opentelemetry-instrumentation,"code_sdk,build_file",,False
+ui-tests,frontend,endpoint,http,0.88,confirmed,"cy.visit('/login'), cy.visit('/signup'), cy.visit('/home'), cy.visit('/')",llm_analysis,,False
+support,frontend,endpoint,http,0.88,confirmed,"cy.visit('login') and cy.visit('/signup') suggest HTTP requests to the frontend service | cy.request({ method: 'POST', url: '/login' }) suggests an HTTP request to the frontend service",llm_analysis,,False
+frontend,gcp,external,gcp,0.85,confirmed,requirements.txt: google-cloud-trace,build_file,,False
+ledgermonolith,postgres,infrastructure,postgres,0.85,confirmed,pom.xml: postgresql,build_file,,False
+frontend,userservice,endpoint,grpc,0.85,confirmed,env var USERSERVICE_API_ADDR in frontend.py | env var USERSERVICE_API_ADDR in frontend.py,code_env_var,,False
+frontend,contacts,endpoint,grpc,0.85,confirmed,env var CONTACTS_API_ADDR in frontend.py,code_env_var,,False
+ledgermonolith,auth0,external,auth0,0.85,confirmed,SDK import: auth0 in JWTVerifierGenerator.java | SDK import: auth0 in LedgerMonolithController.java,code_sdk,,False
+ledgermonolith,zipkin,observability,jaeger,0.85,observability,SDK import: zipkin in LedgerMonolithApplication.java,code_sdk,,False
+ledgermonolith,opentelemetry,observability,jaeger,0.85,observability,SDK import: opentelemetry|otel in LedgerReader.java,code_sdk,,False
+accounts-db,balancereader,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+accounts-db,contacts,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+accounts-db,ledger-db,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+accounts-db,ledgerwriter,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+accounts-db,transactionhistory,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+accounts-db,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+balancereader,contacts,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+balancereader,ledger-db,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+balancereader,ledgerwriter,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+balancereader,transactionhistory,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+balancereader,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+contacts,ledger-db,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+contacts,ledgerwriter,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+contacts,transactionhistory,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+contacts,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+ledger-db,ledgerwriter,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+ledger-db,transactionhistory,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+ledger-db,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+ledgerwriter,transactionhistory,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+ledgerwriter,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+transactionhistory,userservice,semantic,change_coupling,0.8,implicit,co-changed 5x / ratio=1.00,git_change_coupling,,False
+frontend,loadgenerator,semantic,change_coupling,0.749,implicit,co-changed 29x / ratio=0.83,git_change_coupling,,False
+frontend,support,semantic,shared_domain,0.5,implicit,"shared string: ""login"" | shared string: ""license""",string_cooccurrence,login,False
+frontend,ui-tests,semantic,shared_domain,0.5,implicit,"shared string: ""login"" | shared string: ""license"" | shared string: ""username""",string_cooccurrence,login,False
+support,ui-tests,semantic,shared_domain,0.5,implicit,"shared string: ""login"" | shared string: ""license"" | shared string: ""deposittonewaccount""",string_cooccurrence,login,False
+frontend,ledgermonolith,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""amount"" | shared string: ""uuid""",string_cooccurrence,license,False
+frontend,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""amount"" | shared string: ""uuid""",string_cooccurrence,license,False
+ledgermonolith,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""amount"" | shared string: ""uuid""",string_cooccurrence,license,False
+ledgermonolith,support,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+ledgermonolith,ui-tests,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,support,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,ui-tests,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""username"" | shared string: ""password""",string_cooccurrence,license,False
