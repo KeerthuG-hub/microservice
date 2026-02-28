@@ -1,159 +1,135 @@
-# 🔗 Universal Microservice Dependency Analyzer
 
-Detects **all 9 dependency types** across any microservice project.
-Works with any language, any domain (ticketing, healthcare, banking, food delivery...).
-**Zero hardcoded assumptions** — everything learned from the project itself.
+# AI Powered Microservice Dependency Analyzer
 
----
+An intelligent SRE platform that automatically understands microservice architectures without manual diagrams, stale documentation, or guesswork.
 
-## 🚀 Quick Start
-
-```bash
-# 1. Setup
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-
-# 2. Add your Groq API key (free at console.groq.com)
-cp .env.example .env && nano .env
-
-# 3. Run
-python run.py /path/to/your/microservice/project
-
-# 4. No LLM needed? (offline mode)
-python run.py /path/to/project --no-llm
-```
-
-Outputs: JSON report + CSV + interactive HTML dependency graph in `data/outputs/`
+This system analyzes source code and configuration to discover service dependencies, predicts architectural risk using machine learning, computes exact blast radius using graph traversal, and answers plain English architecture questions through a structured query pipeline.
 
 ---
 
-## 📋 Design Principles
+## Overview
 
-| ❌ Never hardcode | ✅ Always discover |
-|---|---|
-| Service names (no "cart", "payment") | Names FROM K8s Service / directory names |
-| Port numbers (no "8080") | Ports FROM K8s Service objects |
-| Env var patterns (no "_SERVICE_URL") | Patterns learned FROM actual env vars |
-| Directory structure (no "src/services/") | Layout detected FROM Dockerfile positions |
+Modern microservice systems are complex and constantly changing. Manual dependency mapping becomes outdated quickly, and deployment risk is often estimated by intuition rather than structural evidence.
+
+This platform solves that by combining deterministic graph analysis with probabilistic risk modeling. Graph traversal handles structural truth. Machine learning handles incident likelihood. These concerns are strictly separated at the architectural level.
 
 ---
 
-## 🔍 9 Dependency Types Detected
+## Core Capabilities
 
-| Type | Subtypes | Sources |
-|------|----------|---------|
-| **endpoint** | HTTP, gRPC, GraphQL, WebSocket | K8s env, config files, source code |
-| **async** | Kafka, RabbitMQ, SQS, NATS | Topic strings, broker URLs |
-| **data** | shared_db, shared_table, shared_redis | Connection strings, SQL queries |
-| **semantic** | shared_domain, change_coupling | String co-occurrence, git history |
-| **build** | proto_import, internal_lib, base_image | go.mod, pom.xml, Dockerfile FROM |
-| **deployment** | startup_order, helm_hook, db_migration | depends_on, initContainers, Jobs |
-| **infrastructure** | postgres, redis, mongodb, vault... | Connection strings, port numbers |
-| **observability** | prometheus, jaeger, opentelemetry | ServiceMonitor, OTEL env vars |
-| **external** | stripe, sendgrid, auth0, aws... | SDK imports in build files |
+### Automatic Dependency Discovery
 
----
+The system scans the entire project and extracts service relationships from:
 
-## 📊 Confidence Tiers
+* Source code across multiple languages
+* Kubernetes and Docker configurations
+* Build manifests
+* Protocol buffer contracts
 
-| Tier | Range | Meaning |
-|------|-------|---------|
-| ✅ Confirmed | ≥ 0.85 | Safe to trust — use in architecture docs |
-| 🟡 Probable | 0.65–0.85 | Likely real — worth a quick manual check |
-| 🔴 Uncertain | < 0.65 | Verify manually before trusting |
-| 👁️ Implicit | string/git | Possible hidden coupling — investigate |
-| 📡 Observability | any | Monitoring only — not functional deps |
+All detected signals are merged and confidence scored. Only high confidence edges are used to build the final dependency graph.
 
-Confidence **boosts** when multiple independent sources agree (+0.05 per additional source).
+### Exact Blast Radius Computation
 
----
+Blast radius is computed using deterministic graph traversal. When a service fails, all direct and transitive downstream services are identified using exact graph descendant traversal.
 
-## 🤖 LLM Usage (Minimal)
+No machine learning is used to approximate topology.
 
-LLM is invoked **only when**:
-1. A service has **zero dependencies** found by static analysis AND has source code
-2. Average confidence for a service is **< 0.65**
-3. User noted a **custom framework** in the 3 context questions
+### Risk Prediction Engine
 
-LLM call = per-service (not per-file), max 6 files, max 1500 chars each.
-Reduces LLM cost ~90% vs full agentic approach.
+Each service is converted into a feature vector derived from graph structure and operational signals. A Random Forest classifier predicts:
 
-**Supported backends** (set `LLM_BACKEND` env var):
-- `groq` — Llama 3.1 70B, free, 14,400 req/day
-- `gemini` — Gemini 1.5 Flash, free, 1M tokens/day
-- `ollama` — Local, fully offline
+* Incident probability
+* Severity score
+* Recovery time estimate
 
----
+Services are assigned one of four risk tiers:
 
-## 🗂️ Project Structure
+* HIGH
+* MEDIUM
+* LOW
+* MINIMAL
 
-```
-microservice-dependency-analyzer/
-├── agent/
-│   ├── models.py              ← Data structures
-│   ├── context_collector.py   ← 3 questions + auto-detection
-│   ├── explorer.py            ← Service discovery (zero hardcoding)
-│   ├── core.py                ← Main orchestration
-│   ├── merger.py              ← Dedup + confidence fusion
-│   ├── semantic_analyzer.py   ← String co-occurrence + git coupling
-│   ├── static_analyzer/
-│   │   ├── k8s_parser.py      ← K8s manifests (all object types)
-│   │   ├── code_parser.py     ← Multi-language source code
-│   │   ├── build_parser.py    ← go.mod, package.json, pom.xml...
-│   │   ├── proto_parser.py    ← .proto files (highest confidence)
-│   │   ├── compose_parser.py  ← docker-compose
-│   │   └── config_parser.py   ← application.yml, .env, appsettings
-│   └── llm/
-│       ├── llm_client.py      ← Groq/Gemini/Ollama wrapper
-│       └── llm_analyzer.py    ← Targeted LLM invocation
-├── graph/
-│   ├── builder.py             ← NetworkX graph
-│   ├── visualizer.py          ← Interactive HTML (PyVis)
-│   └── output_writer.py       ← JSON, CSV, HTML reports
-├── evaluation/
-│   └── evaluator.py           ← Precision/Recall/F1 measurement
-├── tests/
-│   └── test_analyzer.py       ← Unit tests
-├── run.py                     ← CLI entry point
-└── requirements.txt
-```
+### Intelligent Query Assistant
+
+Users can ask natural language questions such as:
+
+* What breaks if payment service fails?
+* Is it safe to deploy auth service?
+* Which services are most critical?
+* What does order service depend on?
+
+A two stage pipeline first classifies intent, then selects only the relevant context slice before generating an SRE style response.
 
 ---
 
-## 📏 Evaluation
+## Architecture Layers
 
-```bash
-# With ground truth JSON
-python run.py /path/to/project \
-  --ground-truth data/ground_truth/my_gt.json
+### Layer 1 Dependency Analysis
 
-# Ground truth format:
-{
-  "edges": [
-    ["frontend", "cartservice"],
-    ["checkoutservice", "paymentservice"]
-  ]
-}
-```
+* Multi language parser suite
+* Dynamic service owner inference
+* Confidence scored dependency merging
+* Threshold enforcement at graph boundary
+
+Only edges with confidence of 0.65 or higher are used for topology.
+
+### Layer 2 Machine Learning Engine
+
+* Graph feature extraction using NetworkX
+* Centrality metrics and coupling metrics
+* Synthetic training data with variance injection
+* Random Forest models for classification and regression
+* Stratified training and cross validation
+
+### Layer 3 Query Engine
+
+* Intent classification before reasoning
+* Minimal context assembly per question
+* Structured response formatting
+* Graceful degradation if models are unavailable
+
+### Layer 4 Visualization Dashboard
+
+* Interactive dependency graph
+* Risk tier visualization
+* Centrality analytics
+* Prediction tables
+* AI chat interface
+
+Infrastructure components such as databases and cloud providers are filtered before analysis so they do not distort structural reasoning.
 
 ---
 
-## ⚙️ Options
+## Key Design Principles
 
-```bash
-python run.py PROJECT_PATH [OPTIONS]
+Separation of concerns
+Graph traversal handles structural facts. Machine learning handles probabilistic risk. Neither approximates the other.
 
-  --no-llm              Skip LLM (offline mode, faster)
-  --non-interactive     Skip 3 questions, use defaults
-  --output DIR          Output directory (default: data/outputs)
-  --graph FILE          HTML graph output path
-  --ground-truth FILE   Evaluate against ground truth JSON
-```
+Intent routing before reasoning
+Only relevant context is sent to the reasoning model, improving quality and reducing noise.
+
+Variance injection for generalization
+Training data is perturbed to prevent memorization of service identity and encourage learning structural patterns.
+
+Graceful degradation
+If any model fails, the system falls back to deterministic structured output instead of failing silently.
+
+Confidence threshold enforcement
+Low confidence signals never enter the graph used by downstream computation.
 
 ---
 
-## 🧪 Tests
+## Future Improvements
 
-```bash
-pytest tests/ -v
-```
+* Integration with real monitoring data such as Prometheus or Datadog
+* Probabilistic cascade simulation for partial failures
+* Time series based incident trend prediction
+* Expanded training corpus across more real world microservice architectures
+
+---
+
+## Summary
+
+This project provides an automated, architecture aware SRE intelligence layer for microservice systems. It combines deterministic graph science with supervised machine learning to deliver explainable risk analysis, precise blast radius computation, and natural language architectural insight.
+
+It replaces manual diagrams with continuously derived structural truth and transforms topology into actionable operational intelligence.
