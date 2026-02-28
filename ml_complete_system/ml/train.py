@@ -1,10 +1,22 @@
 """
-ML Model Trainer - Train Random Forest models for incident prediction.
+ML Model Trainer
 
-Trains 3 models:
-1. Incident Classifier: Will an incident occur? (binary classification)
-2. Severity Regressor: How severe? (0.0 to 1.0)
-3. Impact Regressor: How many services affected? (count)
+CHANGES from original:
+1. REMOVED impact_regressor (train_impact_regressor, y_affected)
+   label_affected_services is no longer an ML target — cascade_engine.py
+   computes affected services deterministically from graph traversal.
+
+2. prepare_features_and_labels() returns (X, y_incident, y_severity) only.
+   train_all() no longer unpacks or trains on y_affected.
+
+3. load_training_data() handles legacy CSVs gracefully:
+   - renames latency_p99_ms → latency_p99 if old column present
+   - renames requests_per_day → traffic_requests_per_day if old column present
+   - rescales health_score 0-100 → 0.0-1.0 if needed
+
+Trains 2 models:
+  1. incident_classifier  — P(incident occurred)  [binary classification]
+  2. severity_regressor   — severity score 0-1     [regression]
 """
 
 import pandas as pd
@@ -16,306 +28,209 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     mean_absolute_error, mean_squared_error, r2_score,
-    classification_report, roc_auc_score
+    roc_auc_score,
 )
 import sys
 
-# Add project root to path (go up: ml/ → ml_complete_system/ → project root)
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 
 class MLModelTrainer:
     """Train and evaluate ML models for incident prediction."""
-    
+
     def __init__(self, random_seed: int = 42):
-        self.random_seed = random_seed
-        self.models = {}
+        self.random_seed   = random_seed
+        self.models        = {}
         self.feature_names = None
-        self.metrics = {}
-    
+        self.metrics       = {}
+
+    # ── Data loading ──────────────────────────────────────────────────────────
+
     def load_training_data(self, data_path: str) -> pd.DataFrame:
-        """Load training data from CSV."""
+        """Load CSV and apply column alignment for legacy files."""
         print(f"\n📂 Loading training data from: {data_path}")
-        df = pd.DataFrame(pd.read_csv(data_path))
+        df = pd.read_csv(data_path)
+
+        # Handle CSVs written before the column rename fix
+        rename_map = {}
+        if 'latency_p99_ms' in df.columns and 'latency_p99' not in df.columns:
+            rename_map['latency_p99_ms'] = 'latency_p99'
+        if 'requests_per_day' in df.columns and 'traffic_requests_per_day' not in df.columns:
+            rename_map['requests_per_day'] = 'traffic_requests_per_day'
+        if rename_map:
+            df.rename(columns=rename_map, inplace=True)
+            print(f"   ⚠️  Renamed legacy columns: {rename_map}")
+
+        if 'health_score' in df.columns and df['health_score'].max() > 1.5:
+            df['health_score'] = (df['health_score'] / 100.0).round(4)
+            print(f"   ⚠️  Rescaled health_score 0-100 → 0-1")
+
         print(f"   ✅ Loaded {len(df)} training examples")
         return df
-    
+
+    # ── Feature / label preparation ───────────────────────────────────────────
+
     def prepare_features_and_labels(self, df: pd.DataFrame) -> tuple:
         """
-        Split data into features (X) and labels (y).
-        
-        Returns:
-            X: Feature matrix
-            y_incident: Binary labels (incident yes/no)
-            y_severity: Severity scores (0-1)
-            y_affected: Affected service counts
+        Returns (X, y_incident, y_severity).
+        y_affected intentionally removed — cascade_engine.py handles that.
         """
         print("\n🔧 Preparing features and labels...")
-        
-        # Identify feature columns (not labels, not metadata)
-        label_cols = [c for c in df.columns if c.startswith('label_')]
-        meta_cols = ['service_name', 'project']
-        
-        feature_cols = [c for c in df.columns 
-                       if c not in label_cols and c not in meta_cols]
-        
-        # Handle categorical features
+
+        label_cols   = [c for c in df.columns if c.startswith('label_')]
+        meta_cols    = ['service_name', 'project']
+        feature_cols = [c for c in df.columns if c not in label_cols and c not in meta_cols]
+
         X = df[feature_cols].copy()
-        
-        # One-hot encode categorical features
-        categorical_cols = ['language', 'change_type']
-        for col in categorical_cols:
+
+        for col in ['language', 'change_type']:
             if col in X.columns:
                 dummies = pd.get_dummies(X[col], prefix=col, drop_first=True)
                 X = pd.concat([X.drop(columns=[col]), dummies], axis=1)
-        
-        # Extract labels
+
         y_incident = df['label_incident_occurred'].values
         y_severity = df['label_severity_score'].values
-        y_affected = df['label_affected_services'].values
-        
+        # label_affected_services intentionally NOT extracted
+
         self.feature_names = list(X.columns)
-        
+
         print(f"   ✅ Features: {len(X.columns)}")
-        print(f"   ✅ Samples: {len(X)}")
+        print(f"   ✅ Samples:  {len(X)}")
         print(f"   ✅ Incident rate: {y_incident.mean()*100:.1f}%")
-        
-        return X, y_incident, y_severity, y_affected
-    
+
+        return X, y_incident, y_severity
+
+    # ── Model training ────────────────────────────────────────────────────────
+
     def train_incident_classifier(self, X_train, y_train, X_test, y_test):
-        """Train binary classifier: will incident occur?"""
+        """Binary classifier: will an incident occur?"""
         print("\n🤖 Training Incident Classifier...")
-        
+
         model = RandomForestClassifier(
-            n_estimators=100,
-            max_depth=10,
-            min_samples_split=5,
-            min_samples_leaf=2,
-            class_weight='balanced',  # handles class imbalance — improves recall
-            random_state=self.random_seed,
-            n_jobs=-1
+            n_estimators=100, max_depth=10,
+            min_samples_split=5, min_samples_leaf=2,
+            class_weight='balanced',
+            random_state=self.random_seed, n_jobs=-1,
         )
-        
         model.fit(X_train, y_train)
-        
-        # Evaluate
-        y_pred = model.predict(X_test)
+
+        y_pred       = model.predict(X_test)
         y_pred_proba = model.predict_proba(X_test)[:, 1]
-        
+
         metrics = {
-            'accuracy': accuracy_score(y_test, y_pred),
+            'accuracy':  accuracy_score(y_test, y_pred),
             'precision': precision_score(y_test, y_pred, zero_division=0),
-            'recall': recall_score(y_test, y_pred, zero_division=0),
-            'f1': f1_score(y_test, y_pred, zero_division=0),
-            'roc_auc': roc_auc_score(y_test, y_pred_proba),
+            'recall':    recall_score(y_test, y_pred, zero_division=0),
+            'f1':        f1_score(y_test, y_pred, zero_division=0),
+            'roc_auc':   roc_auc_score(y_test, y_pred_proba),
         }
-        
-        # Cross-validation score
-        cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='f1')
-        metrics['cv_f1_mean'] = cv_scores.mean()
-        metrics['cv_f1_std'] = cv_scores.std()
-        
-        print(f"   ✅ Accuracy: {metrics['accuracy']:.3f}")
-        print(f"   ✅ Precision: {metrics['precision']:.3f}")
-        print(f"   ✅ Recall: {metrics['recall']:.3f}")
-        print(f"   ✅ F1 Score: {metrics['f1']:.3f}")
-        print(f"   ✅ ROC-AUC: {metrics['roc_auc']:.3f}")
+        cv = cross_val_score(model, X_train, y_train, cv=5, scoring='f1')
+        metrics['cv_f1_mean'] = cv.mean()
+        metrics['cv_f1_std']  = cv.std()
+
+        print(f"   ✅ Accuracy: {metrics['accuracy']:.3f} | F1: {metrics['f1']:.3f} | ROC-AUC: {metrics['roc_auc']:.3f}")
         print(f"   ✅ CV F1: {metrics['cv_f1_mean']:.3f} (±{metrics['cv_f1_std']:.3f})")
-        
+
+        fi = (pd.DataFrame({'feature': self.feature_names, 'importance': model.feature_importances_})
+              .sort_values('importance', ascending=False))
+        print(f"   📊 Top 5: {', '.join(fi['feature'].head(5).tolist())}")
+
         self.models['incident_classifier'] = model
         self.metrics['incident_classifier'] = metrics
-        
-        # Feature importance
-        feature_importance = pd.DataFrame({
-            'feature': self.feature_names,
-            'importance': model.feature_importances_
-        }).sort_values('importance', ascending=False)
-        
-        print(f"\n   📊 Top 5 features:")
-        for _, row in feature_importance.head(5).iterrows():
-            print(f"      {row['feature']}: {row['importance']:.4f}")
-        
         return model, metrics
-    
+
     def train_severity_regressor(self, X_train, y_train, X_test, y_test):
-        """Train regressor: how severe will incident be?"""
+        """Regressor: how severe will the incident be? (0.0-1.0)"""
         print("\n🤖 Training Severity Regressor...")
-        
+
         model = RandomForestRegressor(
-            n_estimators=100,
-            max_depth=10,
-            min_samples_split=5,
-            min_samples_leaf=2,
-            random_state=self.random_seed,
-            n_jobs=-1
+            n_estimators=100, max_depth=10,
+            min_samples_split=5, min_samples_leaf=2,
+            random_state=self.random_seed, n_jobs=-1,
         )
-        
         model.fit(X_train, y_train)
-        
-        # Evaluate
-        y_pred = model.predict(X_test)
-        
+
+        y_pred  = model.predict(X_test)
         metrics = {
-            'mae': mean_absolute_error(y_test, y_pred),
-            'rmse': np.sqrt(mean_squared_error(y_test, y_pred)),
-            'r2': r2_score(y_test, y_pred),
+            'mae':  mean_absolute_error(y_test, y_pred),
+            'rmse': float(np.sqrt(mean_squared_error(y_test, y_pred))),
+            'r2':   r2_score(y_test, y_pred),
         }
-        
-        # Cross-validation
-        cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
-        metrics['cv_r2_mean'] = cv_scores.mean()
-        metrics['cv_r2_std'] = cv_scores.std()
-        
-        print(f"   ✅ MAE: {metrics['mae']:.3f}")
-        print(f"   ✅ RMSE: {metrics['rmse']:.3f}")
-        print(f"   ✅ R²: {metrics['r2']:.3f}")
+        cv = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
+        metrics['cv_r2_mean'] = cv.mean()
+        metrics['cv_r2_std']  = cv.std()
+
+        print(f"   ✅ MAE: {metrics['mae']:.3f} | R²: {metrics['r2']:.3f}")
         print(f"   ✅ CV R²: {metrics['cv_r2_mean']:.3f} (±{metrics['cv_r2_std']:.3f})")
-        
+
         self.models['severity_regressor'] = model
         self.metrics['severity_regressor'] = metrics
-        
         return model, metrics
-    
-    def train_impact_regressor(self, X_train, y_train, X_test, y_test):
-        """Train regressor: how many services will be affected?"""
-        print("\n🤖 Training Impact Regressor...")
-        
-        model = RandomForestRegressor(
-            n_estimators=100,
-            max_depth=10,
-            min_samples_split=5,
-            min_samples_leaf=2,
-            random_state=self.random_seed,
-            n_jobs=-1
-        )
-        
-        model.fit(X_train, y_train)
-        
-        # Evaluate
-        y_pred = model.predict(X_test)
-        
-        metrics = {
-            'mae': mean_absolute_error(y_test, y_pred),
-            'rmse': np.sqrt(mean_squared_error(y_test, y_pred)),
-            'r2': r2_score(y_test, y_pred),
-        }
-        
-        # Cross-validation
-        cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
-        metrics['cv_r2_mean'] = cv_scores.mean()
-        metrics['cv_r2_std'] = cv_scores.std()
-        
-        print(f"   ✅ MAE: {metrics['mae']:.3f} services")
-        print(f"   ✅ RMSE: {metrics['rmse']:.3f} services")
-        print(f"   ✅ R²: {metrics['r2']:.3f}")
-        print(f"   ✅ CV R²: {metrics['cv_r2_mean']:.3f} (±{metrics['cv_r2_std']:.3f})")
-        
-        self.models['impact_regressor'] = model
-        self.metrics['impact_regressor'] = metrics
-        
-        return model, metrics
-    
+
+    # ── Save ──────────────────────────────────────────────────────────────────
+
     def save_models(self, output_dir: str = 'data/models'):
-        """Save trained models to disk."""
         output_path = Path(output_dir)
         output_path.mkdir(parents=True, exist_ok=True)
-        
+
         print(f"\n💾 Saving models to: {output_dir}")
-        
-        for model_name, model in self.models.items():
-            model_file = output_path / f'{model_name}.pkl'
-            joblib.dump(model, model_file)
-            print(f"   ✅ Saved: {model_file}")
-        
-        # Save feature names
-        feature_file = output_path / 'feature_names.pkl'
-        joblib.dump(self.feature_names, feature_file)
-        print(f"   ✅ Saved: {feature_file}")
-        
-        # Save metrics
-        metrics_file = output_path / 'training_metrics.pkl'
-        joblib.dump(self.metrics, metrics_file)
-        print(f"   ✅ Saved: {metrics_file}")
-    
+        for name, model in self.models.items():
+            joblib.dump(model, output_path / f'{name}.pkl')
+            print(f"   ✅ {name}.pkl")
+
+        joblib.dump(self.feature_names, output_path / 'feature_names.pkl')
+        joblib.dump(self.metrics,       output_path / 'training_metrics.pkl')
+        print(f"   ✅ feature_names.pkl")
+        print(f"   ✅ training_metrics.pkl")
+
+    # ── Main pipeline ─────────────────────────────────────────────────────────
+
     def train_all(self, training_data_path: str, test_size: float = 0.2):
-        """
-        Complete training pipeline: load data, train all models, save.
-        
-        Args:
-            training_data_path: Path to training CSV
-            test_size: Fraction of data for testing
-        """
         print("=" * 70)
         print("🚀 ML MODEL TRAINING PIPELINE")
+        print("   ✅ incident_classifier   — will incident occur?")
+        print("   ✅ severity_regressor    — how severe?")
+        print("   ❌ impact_regressor      — REMOVED (cascade_engine.py handles this)")
         print("=" * 70)
-        
-        # Load data
+
         df = self.load_training_data(training_data_path)
-        
-        # Prepare features and labels
-        X, y_incident, y_severity, y_affected = self.prepare_features_and_labels(df)
-        
-        # Train/test split for incident classifier (all rows)
-        print(f"\n✂️  Splitting data: {100-test_size*100:.0f}% train, {test_size*100:.0f}% test")
-        X_train, X_test, y_inc_train, y_inc_test = train_test_split(
-            X, y_incident, test_size=test_size, random_state=self.random_seed, stratify=y_incident
+        X, y_incident, y_severity = self.prepare_features_and_labels(df)
+
+        print(f"\n✂️  Splitting: {100-test_size*100:.0f}% train / {test_size*100:.0f}% test")
+        X_train, X_test, y_inc_tr, y_inc_te = train_test_split(
+            X, y_incident, test_size=test_size,
+            random_state=self.random_seed, stratify=y_incident,
+        )
+        print(f"   Train: {len(X_train)} | Test: {len(X_test)}")
+
+        # Train regressors on incident-only rows
+        # (severity=0 for non-incidents adds noise to regression)
+        mask   = y_incident == 1
+        X_inc  = X[mask]
+        y_sev  = y_severity[mask]
+        print(f"\n   Incident rows for regressor: {mask.sum()} ({mask.mean()*100:.1f}%)")
+
+        X_inc_tr, X_inc_te, y_sev_tr, y_sev_te = train_test_split(
+            X_inc, y_sev, test_size=test_size, random_state=self.random_seed,
         )
 
-        print(f"   Train: {len(X_train)} samples")
-        print(f"   Test:  {len(X_test)} samples")
-
-        # For severity and impact regressors: ONLY use rows where incident occurred
-        # Training on non-incident rows adds noise — severity of 0.7 where no incident
-        # happened is meaningless
-        incident_mask = y_incident == 1
-        X_incident = X[incident_mask]
-        y_severity_incident = y_severity[incident_mask]
-        y_affected_incident = y_affected[incident_mask]
-
-        print(f"\n   Incident rows for regressor training: {incident_mask.sum()} "
-              f"({incident_mask.mean()*100:.1f}% of data)")
-
-        X_inc_train, X_inc_test, y_sev_train, y_sev_test, y_aff_train, y_aff_test = train_test_split(
-            X_incident,
-            y_severity_incident,
-            y_affected_incident,
-            test_size=test_size,
-            random_state=self.random_seed
-        )
-
-        # Train models
-        self.train_incident_classifier(X_train, y_inc_train, X_test, y_inc_test)
-        self.train_severity_regressor(X_inc_train, y_sev_train, X_inc_test, y_sev_test)
-        self.train_impact_regressor(X_inc_train, y_aff_train, X_inc_test, y_aff_test)
-        
-        # Save models
+        self.train_incident_classifier(X_train, y_inc_tr, X_test, y_inc_te)
+        self.train_severity_regressor(X_inc_tr, y_sev_tr, X_inc_te, y_sev_te)
         self.save_models()
-        
+
         print("\n" + "=" * 70)
-        print("✅ TRAINING COMPLETE!")
+        print("✅ TRAINING COMPLETE")
         print("=" * 70)
-        
         return self.models, self.metrics
 
 
 def main():
-    """Main training script."""
     trainer = MLModelTrainer(random_seed=42)
-    
-    # Train on generated data
-    models, metrics = trainer.train_all(
-        training_data_path='data/training_data/training_data.csv',
-        test_size=0.2
-    )
-    
-    print("\n📊 Final Model Summary:")
-    print(f"   Incident Classifier F1: {metrics['incident_classifier']['f1']:.3f}")
-    print(f"   Severity Regressor R²: {metrics['severity_regressor']['r2']:.3f}")
-    print(f"   Impact Regressor R²: {metrics['impact_regressor']['r2']:.3f}")
-    
-    print("\n🎉 Models ready for prediction!")
-    print("   Use: joblib.load('data/models/incident_classifier.pkl')")
+    models, metrics = trainer.train_all('data/training_data/training_data.csv')
+    print(f"\n📊 Incident Classifier F1: {metrics['incident_classifier']['f1']:.3f}")
+    print(f"   Severity Regressor  R²: {metrics['severity_regressor']['r2']:.3f}")
+    print("\n🎉 Load with: joblib.load('data/models/incident_classifier.pkl')")
 
 
 if __name__ == '__main__':

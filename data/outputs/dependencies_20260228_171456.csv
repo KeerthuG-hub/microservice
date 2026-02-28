@@ -1,0 +1,120 @@
+from_service,to_service,dep_type,subtype,confidence,tier,evidence,sources,topic_or_table,conditional
+checkoutservice,productcatalogservice,endpoint,http,0.9,confirmed,env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550,k8s_env,,False
+checkoutservice,shippingservice,endpoint,http,0.9,confirmed,env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051,k8s_env,,False
+checkoutservice,paymentservice,endpoint,http,0.9,confirmed,env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051 | env PAYMENT_SERVICE_ADDR=paymentservice:50051,k8s_env,,False
+checkoutservice,emailservice,endpoint,http,0.9,confirmed,env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000 | env EMAIL_SERVICE_ADDR=emailservice:5000,k8s_env,,False
+checkoutservice,currencyservice,endpoint,http,0.9,confirmed,env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000,k8s_env,,False
+checkoutservice,cartservice,endpoint,http,0.9,confirmed,env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070,k8s_env,,False
+recommendationservice,productcatalogservice,endpoint,http,0.9,confirmed,env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550,k8s_env,,False
+frontend,productcatalogservice,endpoint,http,0.9,confirmed,env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550 | env PRODUCT_CATALOG_SERVICE_ADDR=productcatalogservice:3550,k8s_env,,False
+frontend,currencyservice,endpoint,http,0.9,confirmed,env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000 | env CURRENCY_SERVICE_ADDR=currencyservice:7000,k8s_env,,False
+frontend,cartservice,endpoint,http,0.9,confirmed,env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070 | env CART_SERVICE_ADDR=cartservice:7070,k8s_env,,False
+frontend,recommendationservice,endpoint,http,0.9,confirmed,env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080 | env RECOMMENDATION_SERVICE_ADDR=recommendationservice:8080,k8s_env,,False
+frontend,shippingservice,endpoint,http,0.9,confirmed,env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051 | env SHIPPING_SERVICE_ADDR=shippingservice:50051,k8s_env,,False
+frontend,checkoutservice,endpoint,http,0.9,confirmed,env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050 | env CHECKOUT_SERVICE_ADDR=checkoutservice:5050,k8s_env,,False
+frontend,adservice,endpoint,http,0.9,confirmed,env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555 | env AD_SERVICE_ADDR=adservice:9555,k8s_env,,False
+frontend,shoppingassistantservice,endpoint,http,0.9,confirmed,env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80 | env SHOPPING_ASSISTANT_SERVICE_ADDR=shoppingassistantservice:80,k8s_env,,False
+loadgenerator,frontend,endpoint,http,0.9,confirmed,env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80 | env FRONTEND_ADDR=frontend:80,k8s_env,,False
+__external__,frontend,endpoint,http,0.9,confirmed,Ingress → frontend,k8s_ingress,,False
+emailservice,opentelemetry,observability,jaeger,0.9,observability,requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common,"code_sdk,build_file",,False
+checkoutservice,opentelemetry,observability,jaeger,0.9,observability,go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc,"code_sdk,build_file",,False
+recommendationservice,opentelemetry,observability,jaeger,0.9,observability,requirements.txt: opentelemetry-api | requirements.txt: opentelemetry-distro | requirements.txt: opentelemetry-exporter-otlp-proto-common,"code_sdk,build_file",,False
+frontend,opentelemetry,observability,jaeger,0.9,observability,go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp | go.mod: go.opentelemetry.io/otel,"code_sdk,build_file",,False
+paymentservice,gcp,external,gcp,0.9,confirmed,package.json: @google-cloud/profiler | SDK import: google\.cloud|@google-cloud in index.js,"code_sdk,build_file",,False
+paymentservice,opentelemetry,observability,jaeger,0.9,observability,package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc,"code_sdk,build_file",,False
+productcatalogservice,opentelemetry,observability,jaeger,0.9,observability,go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel | go.mod: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc,"code_sdk,build_file",,False
+currencyservice,gcp,external,gcp,0.9,confirmed,package.json: @google-cloud/profiler | package.json: @google-cloud/trace-agent | SDK import: google\.cloud|@google-cloud in server.js,"code_sdk,build_file",,False
+currencyservice,opentelemetry,observability,jaeger,0.9,observability,package.json: @opentelemetry/api | package.json: @opentelemetry/exporter-otlp-grpc | package.json: @opentelemetry/instrumentation-grpc,"code_sdk,build_file",,False
+shippingservice,opentelemetry,observability,jaeger,0.9,observability,go.mod: go.opentelemetry.io/auto/sdk | go.mod: go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc | go.mod: go.opentelemetry.io/otel,"code_sdk,build_file",,False
+shoppingassistantservice,gcp,external,gcp,0.9,confirmed,requirements.txt: google-cloud-alloydb | requirements.txt: google-cloud-alloydb-connector | requirements.txt: google-cloud-core,"code_sdk,build_file",,False
+emailservice,opentelemetrycollector,observability,opentelemetry,0.88,observability,OTLPSpanExporter import and usage,llm_analysis,,False
+paymentservice,opentelemetrycollector,observability,opentelemetry,0.88,observability,OTLPTraceExporter and COLLECTOR_SERVICE_ADDR environment variable,llm_analysis,,False
+productcatalogservice,postgres,infrastructure,,0.88,confirmed,pgxpool import and usage in catalog_loader.go,llm_analysis,,False
+productcatalogservice,gcp,infrastructure,,0.88,confirmed,cloud.google.com imports and usage in server.go and catalog_loader.go,llm_analysis,,False
+productcatalogservice,opentelemetrycollector,observability,opentelemetry,0.88,observability,opentelemetry import and usage in server.go,llm_analysis,,False
+currencyservice,opentelemetrycollector,observability,opentelemetry,0.88,observability,registerInstrumentations with GrpcInstrumentation and @google-cloud/profiler,llm_analysis,,False
+shippingservice,opentelemetrycollector,observability,opentelemetry,0.88,observability,"Tracing enabled, but te",llm_analysis,,False
+shippingservice,gcp,infrastructure,cloud,0.88,confirmed,import of cloud.google.com/go/profiler,llm_analysis,,False
+emailservice,gcp,external,gcp,0.85,confirmed,requirements.txt: google-cloud-trace | requirements.in: google-cloud-trace,build_file,,False
+shoppingassistantservice,postgres,infrastructure,postgres,0.85,confirmed,requirements.txt: asyncpg | requirements.txt: langchain-postgres | requirements.txt: psycopg,build_file,,False
+cartservice,gcp,external,gcp,0.85,confirmed,SDK import: google\.cloud|@google-cloud in SpannerCartStore.cs | SDK import: google\.cloud|@google-cloud in AlloyDBCartStore.cs,code_sdk,,False
+adservice,opentelemetry,observability,jaeger,0.85,observability,SDK import: opentelemetry|otel in AdService.java,code_sdk,,False
+cartservice,redis-cart,endpoint,http,0.82,probable,env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379 | env REDIS_ADDR=redis-cart:6379,k8s_env_svcname,,False
+frontend,productcatalogservice,semantic,change_coupling,0.777,implicit,co-changed 12x / ratio=0.92,git_change_coupling,,False
+productcatalogservice,shippingservice,semantic,change_coupling,0.777,implicit,co-changed 12x / ratio=0.92,git_change_coupling,,False
+frontend,shippingservice,semantic,change_coupling,0.757,implicit,co-changed 12x / ratio=0.86,git_change_coupling,,False
+currencyservice,paymentservice,semantic,change_coupling,0.756,implicit,co-changed 23x / ratio=0.85,git_change_coupling,,False
+checkoutservice,frontend,semantic,change_coupling,0.754,implicit,co-changed 11x / ratio=0.85,git_change_coupling,,False
+checkoutservice,productcatalogservice,semantic,change_coupling,0.754,implicit,co-changed 11x / ratio=0.85,git_change_coupling,,False
+checkoutservice,shippingservice,semantic,change_coupling,0.754,implicit,co-changed 11x / ratio=0.85,git_change_coupling,,False
+emailservice,recommendationservice,semantic,change_coupling,0.731,implicit,co-changed 20x / ratio=0.77,git_change_coupling,,False
+loadgenerator,shoppingassistantservice,semantic,change_coupling,0.677,implicit,co-changed 13x / ratio=0.59,git_change_coupling,,False
+emailservice,loadgenerator,semantic,change_coupling,0.664,implicit,co-changed 12x / ratio=0.55,git_change_coupling,,False
+loadgenerator,recommendationservice,semantic,change_coupling,0.664,implicit,co-changed 12x / ratio=0.55,git_change_coupling,,False
+productcatalogservice,redis,infrastructure,,0.52,uncertain,"redis-cart mentioned in known services, but not directly referenced in code",llm_analysis,,False
+emailservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""pythonjsonlogger"" | shared string: ""google"" | shared string: ""license""",string_cooccurrence,pythonjsonlogger,False
+emailservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""google"" | shared string: ""license"" | shared string: ""__main__""",string_cooccurrence,google,False
+recommendationservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""google"" | shared string: ""license"" | shared string: ""__main__""",string_cooccurrence,google,False
+adservice,cartservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,checkoutservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,currencyservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,emailservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,frontend,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+adservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""disable_tracing""",string_cooccurrence,license,False
+adservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,checkoutservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,currencyservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,emailservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,frontend,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""quantity""",string_cooccurrence,license,False
+cartservice,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""quantity""",string_cooccurrence,license,False
+cartservice,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""project_id"" | shared string: ""alloydb_database_name""",string_cooccurrence,license,False
+cartservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+cartservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""project_id"" | shared string: ""alloydb_database_name""",string_cooccurrence,license,False
+checkoutservice,currencyservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+checkoutservice,emailservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+checkoutservice,frontend,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+checkoutservice,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+checkoutservice,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+checkoutservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+checkoutservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+checkoutservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""time""",string_cooccurrence,license,False
+checkoutservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,emailservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,frontend,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+currencyservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+emailservice,frontend,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+emailservice,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+emailservice,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+emailservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""disable_profiler""",string_cooccurrence,license,False
+emailservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""disable_profiler""",string_cooccurrence,license,False
+frontend,loadgenerator,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""quantity"" | shared string: ""credit_card_number""",string_cooccurrence,license,False
+frontend,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+frontend,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+frontend,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""enable_tracing""",string_cooccurrence,license,False
+frontend,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""time""",string_cooccurrence,license,False
+frontend,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,paymentservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+loadgenerator,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+paymentservice,productcatalogservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+paymentservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+paymentservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+paymentservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
+productcatalogservice,recommendationservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""disable_profiler""",string_cooccurrence,license,False
+productcatalogservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""disable_profiler""",string_cooccurrence,license,False
+productcatalogservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""alloydb_cluster_name"" | shared string: ""project_id""",string_cooccurrence,license,False
+recommendationservice,shippingservice,semantic,shared_domain,0.5,implicit,"shared string: ""license"" | shared string: ""severity"" | shared string: ""disable_profiler""",string_cooccurrence,license,False
+shippingservice,shoppingassistantservice,semantic,shared_domain,0.5,implicit,"shared string: ""license""",string_cooccurrence,license,False
